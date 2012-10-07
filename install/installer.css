@@ -1,0 +1,22 @@
+body{
+  background-image: url('images/background.jpg');
+  background-repeat: repeat-x;
+  background-color: #C7D2EE;
+  
+  font-family: 'Lucida Grande', Helvetica, sans-serif;
+}
+
+em{
+  
+}
+
+strong{
+  font-family: 'Lucida Grande Bold', Arial, sans-serif;
+}
+#content{
+  width: 900px;
+  margin: auto;
+  background-color: #FFF;
+  box-shadow: 10px 10px 5px #333;
+  padding: 20px;
+}
