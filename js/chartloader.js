@@ -75,6 +75,28 @@ var systemCallback = function updatePluginData(systemdata){
   $('#sys_load').text(systemdata['load']);
   $('#sys_memory').text(Math.round(Number(systemdata['memory']), 2) + "%");
   $('#sys_uptime').text(systemdata['uptime']);
+  
+  sysTxData = google.visualization.arrayToDataTable([
+    ['Label', 'Value'],
+    ['KB Out', Number(systemdata['txrate'])]
+    ]);
+    
+  sysRxData = google.visualization.arrayToDataTable([
+    ['Label', 'Value'],
+    ['KB In', Number(systemdata['rxrate']) ]
+    ]);
+    
+  sysLoadData = google.visualization.arrayToDataTable([
+    ['Label', 'Value'],
+    ['Load', Number(systemdata['load'])]
+    ]);
+    
+  sysLatencyData = google.visualization.arrayToDataTable([
+    ['Label', 'Value'],
+    ['Latency', Math.round(Number(systemdata['latency']), 3)]
+    ]);
+    
+    drawSystemCharts();
 }
 
 /**
@@ -115,6 +137,11 @@ function init() {
   
   //Minload php system charts
   
+  sysTxChart = new google.visualization.Gauge(document.getElementById('sys_tx_chart'));
+  sysRxChart = new google.visualization.Gauge(document.getElementById('sys_rx_chart'));
+  sysLoadChart = new google.visualization.Gauge(document.getElementById('sys_load_chart'));
+  sysLatencyChart = new google.visualization.Gauge(document.getElementById('sys_latency_chart'));
+  
   // start the loop
   mainloop();
 }
@@ -126,6 +153,16 @@ function drawPluginCharts() {
   mPlayerChart.draw(mPlayerData, mPlayersOptions);
   mTpsChart.draw(mTpsData, mTpsOptions);
   mJvmChart.draw(mJvmData, mJvmOptions);
+}
+
+/**
+ *draw the charts for the system data
+ */
+function drawSystemCharts(){
+  sysTxChart.draw(sysTxData, sysTxOptions);
+  sysRxChart.draw(sysRxData, sysRxOptions);
+  sysLoadChart.draw(sysLoadData, sysLoadOptions);
+  sysLatencyChart.draw(sysLatencyData, sysLatencyOptions);
 }
 
 function mainloop(){

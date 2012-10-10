@@ -7,3 +7,9 @@
 .chart{
   float: left;
 }
+
+#plugin_table{
+  width: 80%;
+  margin-left: 40px;
+  margin-right: auto;
+}

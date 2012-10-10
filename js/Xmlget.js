@@ -36,7 +36,10 @@ var mineloadSystemData = {
   rxrate: 0,
   uptime: 0,
   mysqlsql: 0
-}  
+}
+
+//all player related stuff, eg IP, name, display name, inventory etc.
+var playerDataArray;
 
 var mineloadPluginCallback = null;
 var mineloadSystemCallback = null;
@@ -52,7 +55,7 @@ function Xmlget() {
   
   this.ajaxSettings = {
     statusCode: Xmlget.statusFunctions,
-    timeout: 5000, //5 seconds then Xmlget.prototype.error is called to change defcon status
+    timeout: 10000, //5 seconds then Xmlget.prototype.error is called to change defcon status
     error: Xmlget.prototype.error
   };
 }
@@ -90,6 +93,7 @@ Xmlget.prototype.mineloadPluginSuccess = function(data,textStatus, jqXHR){
 /**
  *Fetch the mineload system xml data *legacy*
  */
+//FIXME hardcoded value for ajax herej
 Xmlget.prototype.loadMineloadSystemData = function(callback){
   mineloadSystemCallback = callback;
   this.ajaxSettings['url'] = "http://forgottendynasties.net/admin/mineload/xmldata.php";
@@ -108,7 +112,8 @@ Xmlget.prototype.mineloadSystemSuccess = function(data,textStatus, jqXHR){
  * be triggered and red flashing lights will appear. *not kidding*
  */
 Xmlget.prototype.error = function(jqXHR, textStatus, errorThrown){
-  alert("Ajax error: " + textStatus + errorThrown);
+  $('#errors').show();
+  $('#errors').text("AJAX Error: " + textStatus + "Thrown: " + errorThrown);
 }
 
 /**
@@ -139,7 +144,34 @@ Xmlget.prototype.processMineloadPlugin = function(data){
   mineloadPluginData['tps'] = $(data).find("tps").text();
   mineloadPluginData['memoryused'] = $(data).find("memoryused").text();
   mineloadPluginData['maxmemory'] = $(data).find("maxmemory").text();
+  
+  //get the plugins and send them to be addeded into a shiny datatable
+  var pluginList = new Array();
+  $(data).find("plugin").each(function(){
+    var pluginName = $(this).text();
+    var pluginEnabled = $(this).attr('enabled');
+    var pluginVersion = $(this).attr('version');
+    var pluginAuthor;
+    if((pluginAuthor = $(this).attr('author')) == null){
+      pluginAuthor = "?";
+    }
+    var pluginWebsite;
+    if((pluginWebsite = $(this).attr('website')) == null){
+      pluginWebsite = "?";
+    }
+    var plugin = new Array();
+    plugin.push(pluginName, pluginEnabled, pluginVersion, pluginAuthor, pluginWebsite);
+    pluginList.push(plugin)
+  })
+  
+  loadPluginTable(pluginList);
+  
+  //process the player data.
+  loadPlayerTable();
+  
+  
   mineloadPluginCallback(mineloadPluginData);
+  $('#errors').hide();
 }
 
 /**
