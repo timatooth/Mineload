@@ -24,7 +24,7 @@ require("functions.php");
 header("Content-type: text/xml");
 header("Cache-Control: no-cache");
 
-if (PHP_OS == "linux") {
+if (PHP_OS == "Linux") {
   $loadaverages = sys_getloadavg();
   $memory = getSystemMemInfo();
   $poll = ping($_mc_host, $_mc_port, 10);
