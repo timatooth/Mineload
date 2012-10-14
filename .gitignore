@@ -42,3 +42,5 @@ nbproject/
 
 # security #
 config/config.php
+#my development site github service hook #
+mineloadhook.php

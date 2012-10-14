@@ -101,7 +101,7 @@ Xmlget.prototype.mineloadPluginSuccess = function(data,textStatus, jqXHR){
 //FIXME hardcoded value for ajax herej
 Xmlget.prototype.loadMineloadSystemData = function(callback){
   mineloadSystemCallback = callback;
-  this.ajaxSettings['url'] = "http://forgottendynasties.net/admin/mineload/xmldata.php";
+  this.ajaxSettings['url'] = "legacy/linuxdata.php";
   this.ajaxSettings['success'] = Xmlget.prototype.mineloadSystemSuccess;
   $.ajax(this.ajaxSettings);
 }
