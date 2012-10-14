@@ -24,6 +24,14 @@ require("functions.php");
 header("Content-type: text/xml");
 header("Cache-Control: no-cache");
 
+set_error_handler("errorHandler");
+function errorHandler($code, $message){
+  $dom = new DOMDocument('1.0', 'UTF-8');
+  $server = $dom->createElement("server");
+  $dom->appendChild($server);
+  $server->appendChild($dom->createElement("error", $message));
+  echo $dom->saveXML();
+}
 if (PHP_OS == "Linux") {
   $loadaverages = sys_getloadavg();
   $memory = getSystemMemInfo();

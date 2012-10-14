@@ -171,8 +171,24 @@ Xmlget.prototype.processMineloadPlugin = function(data){
   
   loadPluginTable(pluginList);
   
+  var playerList = new Array();
+  $(data).find("player").each(function(){
+    var playerName = $(this).attr('name');
+    var playerIP = $(this).attr('ip');
+    var playerXYZ = $(this).attr('xyz');
+    var playerWorld = $(this).attr('world');
+    var playerHealth = $(this).attr('health');
+    var playerGameMode = $(this).attr('gamemode');
+    var playerCanFly = $(this).attr('allowedflight');
+    var playerIsOp = $(this).attr('op');
+    var playerInHand = $(this).attr('inhand');
+
+    var player = new Array();
+    player.push(playerName, playerIP, playerXYZ, playerWorld,playerHealth,playerGameMode,playerCanFly,playerIsOp,playerInHand);
+    playerList.push(player)
+  })
   //process the player data.
-  loadPlayerTable();
+  loadPlayerTable(playerList);
   
   
   mineloadPluginCallback(mineloadPluginData);
