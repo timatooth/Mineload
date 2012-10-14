@@ -4,7 +4,8 @@
  * from the bukkit server because of xmlhttp request limitations
  * 
  */
-$xmlData = file_get_contents("http://127.0.0.1:25500");
+$password = $_GET['password'];
+$xmlData = file_get_contents("http://127.0.0.1:25500?password=$password");
 header('Content-Type: text/xml');
 header('Cache-Control: no-cache');
 echo $xmlData;

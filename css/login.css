@@ -1,7 +1,11 @@
+body{
+  background-color: #222;
+}
 #loginfieldset {
   width: 300px;
   margin: auto;
-  background-color: #3b414d;
+  background-color: #5C6573;
   padding: 30px;
+  color: #111;
 }
 

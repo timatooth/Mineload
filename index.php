@@ -1,8 +1,13 @@
 <?php
 include 'User.php';
+//check if the app is installed.
+if(!file_exists("config/config.php")){
+  header('Location: install/');
+  exit();
+}
 session_start();
-if(isset($_SESSION['user'])){
-  if(true){
+if (isset($_SESSION['user'])) {
+  if (true) {
     header('Location: admin.php');
   }
 }
@@ -16,18 +21,20 @@ if(isset($_SESSION['user'])){
     <link media="all" rel="stylesheet" type="text/css" href="css/login.css" />
   </head>
   <body>
-    
+
     <div id="loginfieldset">
-      <h1>Mineload 2.0 Alpha</h1>
+      <h3>Mineload Web 0.0.2 Alpha</h3>
+      
       <form action="login.php" method="post">
         <fieldset>
-          <legend>Login</legend>
-          <p>Demo login is test:pass</p>
-          <label for="loginform">Username:</label><input type="text" id="loginform" name="loginform" />
-          <br />
-          <label for="passwordform">Password:</label><input type="password" id="passwordform" name="passwordform" />
-          <br />
-          <input type="submit" value="Login" />
+          <table>
+            <tr><td><label for="loginform">Username:</label></td><td><input type="text" id="loginform" name="loginform" /></td></tr>
+            <tr><td><label for="passwordform">Password:</label></td><td><input type="password" id="passwordform" name="passwordform" /></td></tr>
+            <tr><td></td><td><input type="submit" value="Login" /></td></tr>
+          </table>
+          <ul class="states">
+            <li><?php if(isset($_GET['error'])){echo $_GET['error'];} ?></li>
+          </ul>
         </fieldset>
       </form>
     </div>

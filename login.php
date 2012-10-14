@@ -1,16 +1,18 @@
 <?php
-include 'Session.php';
-include 'User.php';
 session_start();
-$username = $_POST['loginform'];
-$password = $_POST['passwordform'];
+include 'config/config.php';
+include 'User.php';
+$user = $_POST['loginform'];
+$pass = $_POST['passwordform'];
 
-$session = new Session();
-if($session->validate($username, $password)){
-  $_SESSION['user'] = new User(0);
-  header("Location: admin.php"); 
+if($_mlw_username == $user && $_mlw_password == $pass){
+  $newuser = new User($user);
+  $newuser->setLoggedIn(true);
+  $_SESSION['user'] = $newuser;
+  header('Location: admin.php');
 }
 else{
-  echo 'invalid login';
+  header('Location: index.php?error=Invalid Login');
 }
+
 ?>

@@ -38,6 +38,10 @@ var mineloadSystemData = {
   mysqlsql: 0
 }
 
+var requestData = {
+  password: 'changemenow539'
+}
+
 //all player related stuff, eg IP, name, display name, inventory etc.
 var playerDataArray;
 
@@ -56,6 +60,7 @@ function Xmlget() {
   this.ajaxSettings = {
     statusCode: Xmlget.statusFunctions,
     timeout: 10000, //5 seconds then Xmlget.prototype.error is called to change defcon status
+    data: requestData,
     error: Xmlget.prototype.error
   };
 }

@@ -1,9 +1,8 @@
 body{
-  background-image: url('images/background.jpg');
-  background-repeat: repeat-x;
-  background-color: #C7D2EE;
-  
+  background: url('images/main-background.jpg') no-repeat top center;
+  background-color: #000;
   font-family: 'Lucida Grande', Helvetica, sans-serif;
+  color: #998C71;
 }
 
 em{
@@ -16,7 +15,51 @@ strong{
 #content{
   width: 900px;
   margin: auto;
-  background-color: #FFF;
+  background-color: #222;
   box-shadow: 10px 10px 5px #333;
   padding: 20px;
+}
+
+.states {
+	list-style:none;
+	margin:0;
+	padding:0;
+}
+.states li {
+	vertical-align:top;
+	margin:0 0 1px;
+	padding:9px 5px 12px 55px;
+}
+.states .error {
+	background:#ffdede url('../images/sprite.png') no-repeat 17px -712px;
+	color:#be0000;
+}
+.states .warning {
+	color:#dc6200;
+	background:#fff6de url('../images/sprite.png') no-repeat 18px -975px;
+}
+.states .success {
+	color:#3f5a04;
+	background:#dfedc0 url('../images/sprite.png') no-repeat 15px -841px;
+}
+
+.input{
+  background-color: #333;
+  color: #3c78ba;
+  border: #3b414d solid 1px;
+  width: 200px;
+  height: 30px;
+  font-size: 1.1em;
+  padding: 3px;
+  
+}
+
+a:link{
+  color: #dc6200;
+}
+a:visited{
+  color: #dc6200;
+}
+a:hover{
+  color: #ff9900;
 }

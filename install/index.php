@@ -2,47 +2,84 @@
 /**
  * Generate the configuration file
  */
+set_error_handler("errorHandler");
+
+function errorHandler($code, $message) {
+  //do nothing
+}
+
 if (isset($_POST["Submit"])) {
 
-  $string = '<?php 
-/* Mineload Configuration settings */
+$string = '<?php
+/*** Mineload Minecraft connection Configuration settings ***/
 $_mc_host = "' . $_POST["mc_host"] . '";
-$_mc_port = "' . $_POST["mc_port"] . '";
-//Database for logging mineload statistics.
-$dbhost = "' . $_POST["dbhost"] . '";
-$dbuname = "' . $_POST["dbuname"] . '";
-$dbpass = "' . $_POST["dbpass"] . '";
-$dbname = "' . $_POST["dbname"] . '";
+$_mc_port = ' . $_POST["mc_port"] . ';
 
-/*MineloadPlugin connection */
-//Minecraft server IP
+/*** MySQL Database for logging mineload statistics. ***/
+$_dbhost = "' . $_POST["dbhost"] . '";
+$_dbuname = "' . $_POST["dbuname"] . '";
+$_dbpass = "' . $_POST["dbpass"] . '";
+$_dbname = "' . $_POST["dbname"] . '";
+
+/*** MineloadPlugin connection ***/
+//Mineload Adddress - usually the same as Minecraft address
 $_mlp_host = "' . $_POST["mlp_host"] . '";
 //Port MineloadPlugin is listening on (Default 2500)
-$_mlp_port = "' . $_POST["mlp_port"] . '";
-//MineloadPlugin Password Default is changeme123noSeriouslyChangeMe!
-$_mlp_password = "changeme123noSeriouslyChangeMe!";
+$_mlp_port = ' . $_POST["mlp_port"] . ';
+//MineloadPlugin Password Default is changemenow539!
+$_mlp_password = "' . $_POST["mlp_password"] . '";
 
-/*Mineload System php settings Linux only */
+/*** Mineload System php settings Linux only ***/
 $_mls_interface = "' . $_POST["mls_interface"] . '";
 $_mls_logfile = "' . $_POST["mls_logfile"] . '";
-?>';
+  
+/*** Mineload Web Interface Login credentials & Settings ***/
+$_mlw_username = "' . $_POST["mlw_username"] . '";
+$_mlw_password = "' . $_POST["mlw_password"] . '";
+$_mlw_updates = ' . ($_POST['mlw_updates'] == 'on' ? 1 : 0) . ';
+?>
+';
 
-  $fp = fopen("configuration.php", "w");
+  $fp = fopen("../config/config.php", "w");
   if ($fp == null) {
-    die("cant open file for writing");
+    echo '
+      <!doctype html>
+<html>
+  <head>
+    <title>Mineload Installation</title>
+    <link rel="stylesheet" href="installer.css" media="screen">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="js/installer.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <div id="content">
+      ';
+    echo "<h2>Can't save config file</h2>";
+    echo "<ul class='states'><li class='error'>Your config folder is not writable</li></ul>";
+    echo "<ul class='states'><li class='warning'>Please save this generated configuration code to config/config.php.
+            Alternatively you can make it writable and try again.
+            <a href='../'>Okay done that...</a></li><ul>";
+    echo "<pre>" . htmlentities($string) . "</pre>";
+    exit();
   }
   fwrite($fp, $string);
   fclose($fp);
+  header('Location: success.php');
+  exit();
 }
 ?>
+
 <!doctype html>
 <html>
   <head>
     <title>Mineload Installation</title>
     <link rel="stylesheet" href="installer.css" media="screen">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="js/installer.js" type="text/javascript"></script>
   </head>
   <body>
     <div id="content">
+
       <h1>Mineload Installation</h1>
       <p>
         Thank you for being interested in Mineload! This 'installer' will setup your Mineload
@@ -51,33 +88,38 @@ $_mls_logfile = "' . $_POST["mls_logfile"] . '";
       <form action="" method="post" name="install" id="install">
         <h2>Global Settings</h2>
         <p>
-          <input name="mc_host" type="text" id="mc_host">
+          <input name="mc_host" type="text" class="input" id="mc_host">
           Minecraft server IP
         </p>
 
         <p>
-          <input name="mc_port" type="text" value="25565" id="mc_port">
+          <input name="mc_port" type="text" value="25565" class="input" id="mc_port">
           Minecraft port: (Default is 25565)
+
         </p>
+        <ul class="states">
+          <li id="mc_status"></li>
+        </ul>
+
         <h2>Database Settings</h2>
         <p>
           MySQL is used to log history of your minecraft server to draw pretty graphs of the past.
           It is not required or implemented yet. 
         </p>
         <p>
-          <input name="dbhost" type="text" value="localhost" id="dbhost" value=""> 
+          <input name="dbhost" type="text" value="localhost" class="input" id="dbhost" value="localhost"> 
           DB Host usually localhost.
         </p>
         <p>
-          <input name="dbuname" type="text" id="dbuname"> 
+          <input name="dbuname" type="text" class="input" id="dbuname"> 
           DB Username
         </p>
         <p>
-          <input name="dbpass" type="password" id="dbpass">
+          <input name="dbpass" type="password" class="input" id="dbpass">
           DB Pass 
         </p>
         <p>
-          <input name="dbname" type="text" id="dbname">
+          <input name="dbname" type="text" class="input" id="dbname">
           DB Name 
         </p>
 
@@ -89,19 +131,23 @@ $_mls_logfile = "' . $_POST["mls_logfile"] . '";
         </p>
 
         <p>
-          <input name="mlp_host" type="text" id="mlp_host">
+          <input name="mlp_host" type="text" class="input" id="mlp_host">
           MineloadPlugin Host IP eg. mc.forgottendynasties.net
         </p>
 
         <p>
-          <input name="mlp_port" type="text" value="25500" id="mlp_port">
+          <input name="mlp_port" type="text" class="input" value="25500" id="mlp_port">
           MineloadPlugin Port: 25500 default is fine.
         </p>
 
         <p>
-          <input name="mlp_password" type="text" value="changeme123noSeriouslyChangeMe!" id="mlp_password">
-          MineloadPlugin Password: (Default: changeme123noSeriouslyChangeMe!)
+          <input name="mlp_password" type="text" class="input" value="" id="mlp_password">
+          MineloadPlugin Password: (Default: changemenow539)
+
         </p>
+        <ul class="states">
+          <li id="mlp_status"></li>
+        </ul>
 
         <h2>Linux Specific Settings</h2>
         <p>
@@ -112,10 +158,10 @@ $_mls_logfile = "' . $_POST["mls_logfile"] . '";
         <h3>Network Interface</h3>
         <p>
           Your network interface on a dedicated machine is usually 'eth0'. Virtual machines
-          are usually 'venet0'</p>
+          are usually 'venet0'
         </p>
         <p>
-          <input name="mls_interface" type="text" value="eth0" id="mls_interface">
+          <input name="mls_interface" type="text" class="input" value="eth0" id="mls_interface">
           Network Interface: (Default: eth0)
         </p>
         <p>
@@ -124,9 +170,25 @@ $_mls_logfile = "' . $_POST["mls_logfile"] . '";
         </p>
 
         <p>
-          <input name="mls_logfile" type="text" value="/home/mc/server.log" id="mls_logfile">
+          <input name="mls_logfile" type="text" class="input" value="/home/mc/server.log" id="mls_logfile">
           Log Path: (Default: /home/mc/server.log)
         </p>
+        <h2>Mineload Web Interface Settings</h2>
+        <p>
+          Be sure to remember your super administrator login details. Keeping the check
+          for updates option set is highly recommended to keep you informed of critical updates.
+        </p>
+        <p>
+          <input name="mlw_username" type="text" class="input" value="admin" id="mlw_username">
+          Web Interface User: (Default: admin)
+        </p>
+        <p>
+          <input name="mlw_password" type="password" class="input" id="mlw_password">
+          Web Interface Password
+        </p>
+        <p>
+          <input name="mlw_updates" type="checkbox" checked="checked" id="mlw_updates">
+          Check for updates (Highly Recommended for security fixes and general awesomeness)
         <p>
           <input type="submit" name="Submit" value="Install">
         </p>

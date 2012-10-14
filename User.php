@@ -7,9 +7,8 @@ class User {
   private $email;
   private $isLoggedIn;
   
-  public function __construct($id) {
-    $this->userId = $id;
-    $this->username = "test";
+  public function __construct($user) {
+    $this->username = $user;
     $this->password = "password";
   }
   
