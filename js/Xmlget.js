@@ -149,6 +149,10 @@ Xmlget.prototype.processMineloadPlugin = function(data){
   mineloadPluginData['tps'] = $(data).find("tps").text();
   mineloadPluginData['memoryused'] = $(data).find("memoryused").text();
   mineloadPluginData['maxmemory'] = $(data).find("maxmemory").text();
+  mineloadPluginData['jvmversion'] = $(data).find("jvmversion").text();
+  mineloadPluginData['osname'] = $(data).find("osname").text();
+  mineloadPluginData['osversion'] = $(data).find("osversion").text();
+  mineloadPluginData['cwd'] = $(data).find("cwd").text();
   
   //get the plugins and send them to be addeded into a shiny datatable
   var pluginList = new Array();
@@ -189,6 +193,27 @@ Xmlget.prototype.processMineloadPlugin = function(data){
   })
   //process the player data.
   loadPlayerTable(playerList);
+  
+  var worldList = new Array();
+  $(data).find("world").each(function(){
+    var worldName = $(this).text();
+    var worldPlayers = $(this).attr('players');
+    var worldEntities = $(this).attr('entities');
+    var worldTime = $(this).attr('time');
+    var hours = Number(worldTime) / 1000 + 6;
+    if(hours >= 12){
+      worldTime = "Day";
+    } else{
+      worldTime = "Night";
+    }
+    var worldType = $(this).attr('type');
+    var worldDifficulty = $(this).attr('difficulty');
+    var world = new Array();
+    world.push(worldName, worldPlayers, worldEntities, worldTime, worldType, worldDifficulty);
+    worldList.push(world)
+  })
+  
+  loadWorldTable(worldList);
   
   
   mineloadPluginCallback(mineloadPluginData);

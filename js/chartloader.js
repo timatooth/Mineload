@@ -43,6 +43,10 @@ var pluginCallback = function updatePluginData(plugindata){
   $('#plugin_jvmused').text(plugindata['memoryused'] + " MB (" +
     Math.round(Number(plugindata['memoryused'] /plugindata['maxmemory'] ) * 100, 2) + "%)");
   $('#plugin_jvmmax').text(plugindata['maxmemory'] + " MB");
+  $('#plugin_jvmversion').text(plugindata['jvmversion']);
+  $('#plugin_osname').text(plugindata['osname']);
+  $('#plugin_osversion').text(plugindata['osversion']);
+  $('#plugin_cwd').text(plugindata['cwd']);
   
   //populate the google tables with new data.
   mPlayerData = google.visualization.arrayToDataTable([

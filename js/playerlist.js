@@ -3,8 +3,8 @@ var dataTable = null;
 function loadPlayerTable(players) {
   
   
-  $('#player_table').html( '<table cellpadding="0" cellspacing="0" border="0" class="display" id="example"></table>' );
-  dataTable = $('#example').dataTable( {
+  $('#player_table').html( '<table cellpadding="0" cellspacing="0" border="0" class="display" id="playertable"></table>' );
+  dataTable = $('#playertable').dataTable( {
     "aaData": players,
     "aoColumns": [
       { "sTitle": "Player" },

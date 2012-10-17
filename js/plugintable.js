@@ -4,9 +4,9 @@ function loadPluginTable(plugins) {
   //alert(plugins[0]);
   if(playerTableLoaded){return;}
   
-  $('#plugin_table').html( '<table cellpadding="0" cellspacing="0" border="0" class="display" id="example"></table>' );
+  $('#plugin_table').html( '<table cellpadding="0" cellspacing="0" border="0" class="display" id="plugintable"></table>' );
   
-  $('#example').dataTable( {
+  $('#plugintable').dataTable( {
     "aaData": plugins,
     "aoColumns": [
       {"sTitle": "Plugin name" },

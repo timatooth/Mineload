@@ -19,3 +19,13 @@
   margin-left: 40px;
   margin-right: auto;
 }
+
+#feedcontent h4{
+  color: #005599;
+  font-weight: 100;
+}
+
+#feedcontent{
+  margin-right: 40px;
+  color: #222;
+}

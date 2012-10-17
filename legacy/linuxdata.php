@@ -20,6 +20,7 @@
  * Memory - /proc/meminfo or free -m
  * tx/rx = /sys/class/net/eth0/statistics/tx_bytes
  */
+session_start();
 require("../config/config.php");
 require("functions.php");
 header("Content-type: text/xml");
@@ -32,6 +33,7 @@ $dom->appendChild($server);
 set_error_handler("errorHandler");
 
 function errorHandler($code, $message, $file, $line) {
+  //this is a hacky solution to stopping undefined offset warnings
   if ($code == 8) {
     return;
   }
@@ -41,6 +43,13 @@ function errorHandler($code, $message, $file, $line) {
   $error->setAttribute("code", $code);
   $error->setAttribute("line", $line);
   $server->appendChild($error);
+}
+
+if(!isset($_SESSION['user'])){
+  $error = $dom->createElement("error", "User not authorized");
+  $server->appendChild($error);
+  echo $dom->saveXML();
+  exit();
 }
 
 if (PHP_OS == "Linux") {
