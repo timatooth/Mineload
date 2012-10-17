@@ -200,8 +200,8 @@ Xmlget.prototype.processMineloadPlugin = function(data){
     var worldPlayers = $(this).attr('players');
     var worldEntities = $(this).attr('entities');
     var worldTime = $(this).attr('time');
-    var hours = Number(worldTime) / 1000 + 6;
-    if(hours >= 12){
+    worldTime = Number(worldTime);
+    if(worldTime >=0 && worldTime <= 14000 ){
       worldTime = "Day";
     } else{
       worldTime = "Night";
