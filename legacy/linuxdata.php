@@ -1,4 +1,5 @@
 <?php
+
 /**
  * I hope to support all server operating systems not just linux.
  * 
@@ -24,14 +25,24 @@ require("functions.php");
 header("Content-type: text/xml");
 header("Cache-Control: no-cache");
 
+$dom = new DOMDocument('1.0', 'UTF-8');
+$server = $dom->createElement("server");
+$dom->appendChild($server);
+
 set_error_handler("errorHandler");
-function errorHandler($code, $message){
-  $dom = new DOMDocument('1.0', 'UTF-8');
-  $server = $dom->createElement("server");
-  $dom->appendChild($server);
-  $server->appendChild($dom->createElement("error", $message));
-  echo $dom->saveXML();
+
+function errorHandler($code, $message, $file, $line) {
+  if ($code == 8) {
+    return;
+  }
+  global $dom, $server;
+  $error = $dom->createElement("error", $message);
+  $error->setAttribute("file", $file);
+  $error->setAttribute("code", $code);
+  $error->setAttribute("line", $line);
+  $server->appendChild($error);
 }
+
 if (PHP_OS == "Linux") {
   $loadaverages = sys_getloadavg();
   $memory = getSystemMemInfo();
@@ -39,9 +50,6 @@ if (PHP_OS == "Linux") {
   $memused = (1 - $memory['MemFree'] / $memory['MemTotal']) * 100;
   $traffic = networkUsage($_mls_interface);
   $transferRate = networkRate($_mls_interface);
-  $dom = new DOMDocument('1.0', 'UTF-8');
-  $server = $dom->createElement("server");
-  $dom->appendChild($server);
   $server->appendChild($dom->createElement('load', $loadaverages[0]));
   $server->appendChild($dom->createElement('memory', $memused));
   $server->appendChild($dom->createElement('players', $poll['players']));
@@ -53,7 +61,7 @@ if (PHP_OS == "Linux") {
   $server->appendChild($dom->createElement('txrate', $transferRate['txRate']));
   $server->appendChild($dom->createElement('rxrate', $transferRate['rxRate']));
   echo $dom->saveXML();
-} else{
+} else {
   $dom = new DOMDocument('1.0', 'UTF-8');
   $server = $dom->createElement("server");
   $dom->appendChild($server);

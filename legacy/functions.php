@@ -21,15 +21,17 @@ function ping($host, $port = 25565, $timeout = 1000) {
       'ping' => $ping
   );
 }
+
 /**
  * Linux specific
+ * //FIXME undefined array index errors.
  * @return type
  */
 function getSystemMemInfo() {
   $data = explode("\n", file_get_contents("/proc/meminfo"));
   $meminfo = array();
   foreach ($data as $line) {
-    @list($key, $val) = explode(":", $line);
+    list($key, $val) = explode(":", $line);
     $meminfo[$key] = (int) substr(trim($val), 0, -3);
   }
   return $meminfo;
