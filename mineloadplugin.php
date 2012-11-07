@@ -18,7 +18,7 @@ function errorHandler($code, $message){
   $server->appendChild($error);
 }
 if (isset($_SESSION['user'])) {
-  $xmlData = file_get_contents("http://127.0.0.1:25500?password=$_mlp_password");
+  $xmlData = file_get_contents("http://".$_mlp_host.":".$_mlp_port."?password=$_mlp_password");
   header('Content-Type: text/xml');
   header('Cache-Control: no-cache');
   echo $xmlData;

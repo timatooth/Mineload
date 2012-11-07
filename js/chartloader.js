@@ -65,6 +65,7 @@ var pluginCallback = function updatePluginData(plugindata){
     ]);
     
   drawPluginCharts();
+  alertCheck(plugindata);
     
 }
 
