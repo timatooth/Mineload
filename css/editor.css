@@ -1,0 +1,64 @@
+body{
+  color: #FFF;
+  font-family: sans-serif;
+  font-size: 0.8em;
+}
+a, a:link, a:visited, a:hover{
+  color: white;
+  font-family: sans-serif;
+}
+#controlbar{
+  background-color: black;
+  position: fixed;
+  top: 0px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.editorlinks {
+  list-style: none;
+}
+.editorlinks li{
+  float: left;
+  margin: 3px;
+  margin-right: 30px;
+}
+#editor { 
+  position: absolute;
+  top: 60px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+#es{
+  
+}
+
+#current_open_file{
+  color: #4c95cd;
+}
+
+#statusbar{
+  background-color: #005599;
+  height: 20px;
+  position: absolute;
+  display: none;
+  z-index: 1;
+}
+
+.icon{
+  position: relative;
+  top: -5px;
+}
+
+.status{
+  color: #FFF;
+  
+}
+.success{
+  color: #33cc00;
+}
+
+.fail{
+  color: #ff0000;
+}

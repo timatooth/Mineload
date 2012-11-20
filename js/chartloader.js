@@ -40,28 +40,40 @@ var sysMemoryData;
 
 var pluginCallback = function updatePluginData(plugindata){
   $('#plugin_tickrate').text(plugindata['tps']);
-  $('#plugin_jvmused').text(plugindata['memoryused'] + " MB (" +
-    Math.round(Number(plugindata['memoryused'] /plugindata['maxmemory'] ) * 100, 2) + "%)");
+  $('#plugin_jvmused').text(plugindata['memoryused'] + " MB (" +Math.round(Number(plugindata['memoryused'] /plugindata['maxmemory'] ) * 100, 2) + "%)");
   $('#plugin_jvmmax').text(plugindata['maxmemory'] + " MB");
   $('#plugin_jvmversion').text(plugindata['jvmversion']);
   $('#plugin_osname').text(plugindata['osname']);
   $('#plugin_osversion').text(plugindata['osversion']);
   $('#plugin_cwd').text(plugindata['cwd']);
+  $('#plugin_bukkitversion').text(plugindata['bukkitversion']);
+  $('#plugin_playercount').text(plugindata['playercount']+"/"+plugindata['maxplayers']);
+  $('#plugin_motd').html("<em>"+plugindata['motd']+"</em>");
   
-  //populate the google tables with new data.
+  //populate the google tables with new data
+  var playercount = Number(plugindata['playercount']) / Number(plugindata['maxplayers']);
+  if (isNaN(playercount)){
+    playercount = 0;
+  }
   mPlayerData = google.visualization.arrayToDataTable([
     ['Label', 'Value'],
-    ['Slots %', Number(plugindata['playercount']) / Number(plugindata['maxplayers'])]
+    ['Slots %', playercount]
     ]);
-    
+  var memused = Math.round(Number(plugindata['memoryused']) / Number(plugindata['maxmemory']) * 100);
+  if(isNaN(memused)){
+    memused = 0;
+  }
   mJvmData = google.visualization.arrayToDataTable([
     ['Label', 'Value'],
-    ['Mem Used', Math.round(Number(plugindata['memoryused']) / Number(plugindata['maxmemory']) * 100) ]
+    ['Mem Used', memused]
     ]);
-    
+    var tps = Number(plugindata['tps'])
+    if(isNaN(tps)){
+      tps = 0;
+    }
   mTpsData = google.visualization.arrayToDataTable([
     ['Label', 'Value'],
-    ['Ticks p/s', Number(plugindata['tps'])]
+    ['Ticks p/s', tps]
     ]);
     
   drawPluginCharts();
@@ -123,17 +135,6 @@ function init() {
     ['Load', Math.floor(Math.random()*101)]
     ]);
     
-  //options array sets how the charts will redline, scale etc.
-  options = {
-    width: 900, 
-    height: 120,
-    redFrom: 90, 
-    redTo: 100,
-    yellowFrom:75, 
-    yellowTo: 90,
-    minorTicks: 5
-  };
-  
   //initilize the charts now.
   //MineloadPlugin charts
   mPlayerChart = new google.visualization.Gauge(document.getElementById('slots_chart'));

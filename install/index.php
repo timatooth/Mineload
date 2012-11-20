@@ -37,6 +37,13 @@ $_mls_logfile = "' . $_POST["mls_logfile"] . '";
 $_mlw_username = "' . $_POST["mlw_username"] . '";
 $_mlw_password = "' . $_POST["mlw_password"] . '";
 $_mlw_updates = ' . ($_POST['mlw_updates'] == 'on' ? 1 : 0) . ';
+
+/*** JSONAPI Connection Settings ***/
+$_jsonapi_host = "' . $_POST["jsonapi_host"] . '";
+$_jsonapi_port = "' . $_POST["jsonapi_port"] . '";
+$_jsonapi_username = "' . $_POST["jsonapi_username"] . '";
+$_jsonapi_password = "' . $_POST["jsonapi_password"] . '";
+$_jsonapi_salt = "' . $_POST["jsonapi_salt"] . '";
 ?>
 ';
 
@@ -149,7 +156,7 @@ $_mlw_updates = ' . ($_POST['mlw_updates'] == 'on' ? 1 : 0) . ';
           <li id="mlp_status"></li>
         </ul>
 
-        <h2>Linux Specific Settings</h2>
+        <h2>Linux Specific Settings - To be Deprecated!</h2>
         <p>
           This section specifies special linux functions. It uses the old php script. It
           will only work well for systems that host the website on the minecraft server.
@@ -172,6 +179,32 @@ $_mlw_updates = ' . ($_POST['mlw_updates'] == 'on' ? 1 : 0) . ';
         <p>
           <input name="mls_logfile" type="text" class="input" value="/home/mc/server.log" id="mls_logfile">
           Log Path: (Default: /home/mc/server.log)
+        </p>
+        <h2>JSONAPI Connection Settings</h2>
+        <p>
+          You must have the JSONAPI.jar plugin installed. This plugin provides a secure
+          way to send and receive various commands, functions, data etc. It is now
+          <strong>required! </strong><a href="http://dev.bukkit.org/server-mods/jsonapi/" target="_blank">JSONAPI BukkitDev Page</a>
+        </p>
+        <p>
+          <input name="jsonapi_host" type="text" class="input" value="" id="jsonapi_host">
+          JSONAPI address (Same as Minecraft server IP 99% of the time)
+        </p>
+        <p>
+          <input name="jsonapi_port" type="text" class="input" value="20059" id="jsonapi_port">
+          JSONAPI port (Default is: 20059)
+        </p>
+        <p>
+          <input name="jsonapi_username" type="text" class="input" id="jsonapi_username">
+          JSONAPI Username
+        </p>
+        <p>
+          <input name="jsonapi_password" type="password" class="input" id="jsonapi_password">
+          JSONAPI password
+        </p>
+        <p>
+          <input name="jsonapi_salt" type="text" class="input" id="jsonapi_salt">
+          JSONAPI salt
         </p>
         <h2>Mineload Web Interface Settings</h2>
         <p>

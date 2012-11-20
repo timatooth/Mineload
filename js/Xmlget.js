@@ -153,6 +153,8 @@ Xmlget.prototype.processMineloadPlugin = function(data){
   mineloadPluginData['osname'] = $(data).find("osname").text();
   mineloadPluginData['osversion'] = $(data).find("osversion").text();
   mineloadPluginData['cwd'] = $(data).find("cwd").text();
+  mineloadPluginData['bukkitversion'] = $(data).find("bukkitversion").text();
+  mineloadPluginData['motd'] = $(data).find("motd").text();
   
   //get the plugins and send them to be addeded into a shiny datatable
   var pluginList = new Array();
