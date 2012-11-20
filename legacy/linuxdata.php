@@ -56,7 +56,7 @@ if (PHP_OS == "Linux") {
   $loadaverages = sys_getloadavg();
   $memory = getSystemMemInfo();
   $poll = ping($_mc_host, $_mc_port, 10);
-  $memused = (1 - $memory['MemFree'] / $memory['MemTotal']) * 100;
+  $memused = (1 - $memory['Active'] / $memory['MemTotal']) * 100;
   $traffic = networkUsage($_mls_interface);
   $transferRate = networkRate($_mls_interface);
   $server->appendChild($dom->createElement('load', $loadaverages[0]));
