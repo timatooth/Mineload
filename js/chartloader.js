@@ -2,6 +2,7 @@
  *Starting point for chart drawing.
  *google will start init once its loaded.
  */
+var DELAY = 4000; //update the charts every DELAY ms.
 google.load('visualization', '1', {
   packages:['gauge']
 });
@@ -18,18 +19,16 @@ var chart;
 var mPlayerChart;
 var mJvmChart;
 var mTpsChart;
+var mTxChart;
+var mRxChart;
 
-//php sourced data charts
-var sysTxChart;
-var sysRxChart;
-var sysLoadChart;
-var sysLatencyChart;
-var sysMemoryChart;
 
 //data for charts from mineloadPlugin
 var mPlayerData;
 var mJvmData;
 var mTpsData;
+var mHeartbeatChart;
+var mTimePerTickChart;
 
 //data for charts from php script
 var sysTxData;
@@ -38,7 +37,15 @@ var sysLoadData;
 var sysLatencyData;
 var sysMemoryData;
 
+//last tx and rx values to help calculate the rate
+var lastTx = 0;
+var lastRx = 0;
+
 var pluginCallback = function updatePluginData(plugindata){
+  var tx = Number(plugindata['tx']);
+  var rx = Number(plugindata['rx']);
+  var txRate = Math.round(((tx - lastTx) / 1024) / (DELAY / 1000), 2);
+  var rxRate = Math.round((rx - lastRx) / 1024 / (DELAY / 1000), 2);
   $('#plugin_tickrate').text(plugindata['tps']);
   $('#plugin_jvmused').text(plugindata['memoryused'] + " MB (" +Math.round(Number(plugindata['memoryused'] /plugindata['maxmemory'] ) * 100, 2) + "%)");
   $('#plugin_jvmmax').text(plugindata['maxmemory'] + " MB");
@@ -49,6 +56,10 @@ var pluginCallback = function updatePluginData(plugindata){
   $('#plugin_bukkitversion').text(plugindata['bukkitversion']);
   $('#plugin_playercount').text(plugindata['playercount']+"/"+plugindata['maxplayers']);
   $('#plugin_motd').html("<em>"+plugindata['motd']+"</em>");
+  $('#plugin_tx').text(Math.round(tx / Math.pow(1024, 3), 2));
+  $('#plugin_rx').text(Math.round(rx / Math.pow(1024, 3), 2));
+  $('#plugin_txrate').text(txRate);
+  $('#plugin_rxrate').text(rxRate);
   
   //populate the google tables with new data
   var playercount = Number(plugindata['playercount']) / Number(plugindata['maxplayers']);
@@ -67,21 +78,50 @@ var pluginCallback = function updatePluginData(plugindata){
     ['Label', 'Value'],
     ['Mem Used', memused]
     ]);
-    var tps = Number(plugindata['tps'])
-    if(isNaN(tps)){
-      tps = 0;
-    }
+  var tps = Number(plugindata['tps'])
+  if(isNaN(tps)){
+    tps = 0;
+  }
   mTpsData = google.visualization.arrayToDataTable([
     ['Label', 'Value'],
-    ['Ticks p/s', tps]
+    ['Ticks p/s', Math.round(tps, 2)]
     ]);
     
+  mTxData = google.visualization.arrayToDataTable([
+    ['Label', 'Value'],
+    ['KB Out', txRate]
+    ]);
+    
+  mRxData = google.visualization.arrayToDataTable([
+    ['Label', 'Value'],
+    ['KB In', rxRate]
+    ]);
+  var heartbeat = Number(plugindata['heartbeat']);
+  if(isNaN(heartbeat)){
+    heartbeat = 0;
+  }
+  var tpc = Number(plugindata['tpc']);
+  if(isNaN(tpc)){
+    tpc = 0;
+  }
+  mHeartbeatData = google.visualization.arrayToDataTable([
+    ['Label', 'Value'],
+    ['Heartrate', heartbeat]
+    ]);
+    
+  mTimePerTickData = google.visualization.arrayToDataTable([
+    ['Label', 'Value'],
+    ['TPC', tpc]
+    ]);
+    
+  lastRx = rx;
+  lastTx = tx;
   drawPluginCharts();
   alertCheck(plugindata);
     
 }
 
-var systemCallback = function updatePluginData(systemdata){
+var systemCallback = function updateSystemData(systemdata){
   $('#tx').text(Math.round(Number(systemdata['tx']) / (1024*1024*1024), 2));
   $('#rx').text(Math.round(Number(systemdata['rx']) / (1024*1024*1024), 2));
   $('#rxrate').text(systemdata['rxrate']);
@@ -92,28 +132,10 @@ var systemCallback = function updatePluginData(systemdata){
   $('#sys_load').text(systemdata['load']);
   $('#sys_memory').text(Math.round(Number(systemdata['memory']), 2) + "%");
   $('#sys_uptime').text(systemdata['uptime']);
+    
   
-  sysTxData = google.visualization.arrayToDataTable([
-    ['Label', 'Value'],
-    ['KB Out', Number(systemdata['txrate'])]
-    ]);
     
-  sysRxData = google.visualization.arrayToDataTable([
-    ['Label', 'Value'],
-    ['KB In', Number(systemdata['rxrate']) ]
-    ]);
-    
-  sysLoadData = google.visualization.arrayToDataTable([
-    ['Label', 'Value'],
-    ['Load', Number(systemdata['load'])]
-    ]);
-    
-  sysLatencyData = google.visualization.arrayToDataTable([
-    ['Label', 'Value'],
-    ['Latency', Math.round(Number(systemdata['latency']), 3)]
-    ]);
-    
-    drawSystemCharts();
+  //drawSystemCharts();
 }
 
 /**
@@ -140,13 +162,13 @@ function init() {
   mPlayerChart = new google.visualization.Gauge(document.getElementById('slots_chart'));
   mJvmChart = new google.visualization.Gauge(document.getElementById('jvm_chart'));
   mTpsChart = new google.visualization.Gauge(document.getElementById('tps_chart'));
+  mTxChart = new google.visualization.Gauge(document.getElementById('tx_chart'));
+  mRxChart = new google.visualization.Gauge(document.getElementById('rx_chart'));
+  mHeartbeatChart = new google.visualization.Gauge(document.getElementById('heartbeat_chart'));
+  mTimePerTickChart = new google.visualization.Gauge(document.getElementById('tpc_chart'));
   
   //Minload php system charts
-  
-  sysTxChart = new google.visualization.Gauge(document.getElementById('sys_tx_chart'));
-  sysRxChart = new google.visualization.Gauge(document.getElementById('sys_rx_chart'));
-  sysLoadChart = new google.visualization.Gauge(document.getElementById('sys_load_chart'));
-  sysLatencyChart = new google.visualization.Gauge(document.getElementById('sys_latency_chart'));
+  //none anymore :)
   
   // start the loop
   mainloop();
@@ -159,26 +181,27 @@ function drawPluginCharts() {
   mPlayerChart.draw(mPlayerData, mPlayersOptions);
   mTpsChart.draw(mTpsData, mTpsOptions);
   mJvmChart.draw(mJvmData, mJvmOptions);
+  mTxChart.draw(mTxData, mTxOptions);
+  mRxChart.draw(mRxData, mRxOptions);
+  mHeartbeatChart.draw(mHeartbeatData, mHeartbeatOptions);
+  mTimePerTickChart.draw(mTimePerTickData, mTimePerTickOptions);
 }
 
 /**
  *draw the charts for the system data
  */
 function drawSystemCharts(){
-  sysTxChart.draw(sysTxData, sysTxOptions);
-  sysRxChart.draw(sysRxData, sysRxOptions);
-  sysLoadChart.draw(sysLoadData, sysLoadOptions);
-  sysLatencyChart.draw(sysLatencyData, sysLatencyOptions);
+ 
 }
 
 function mainloop(){
   //get the latest data
   var xml = new Xmlget();
   xml.loadMineloadPluginData(pluginCallback);
-  xml.loadMineloadSystemData(systemCallback);
+  //xml.loadMineloadSystemData(systemCallback);
     
   //call mainloop over and over again with setTimeout()
-  setTimeout(mainloop, 4000);
+  setTimeout(mainloop, DELAY);
 }
 
 

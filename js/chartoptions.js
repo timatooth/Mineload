@@ -74,6 +74,36 @@ var mJvmOptions =
   }
 };
 
+var mHeartbeatOptions = 
+{
+  width: 420, 
+  height: 140,
+  max: 10000,
+  redFrom: 1010, 
+  redTo: 10000,
+  greenFrom: 0, 
+  greenTo: 1010,
+  //yellowFrom: 0.5, 
+  //yellowTo: 1.5,
+  animation:{
+    duration: 1000,
+    easing: 'out'
+  }
+};
+
+var mTimePerTickOptions = 
+{
+  width: 420, 
+  height: 140,
+  max: 3000,
+  greenFrom: 900, 
+  greenTo: 1090,
+  animation:{
+    duration: 1000,
+    easing: 'out'
+  }
+};
+
 /**
  * Linux related values here. 
  * These display the general performance of the linux
@@ -121,7 +151,7 @@ var sysMemoryOptions =
 
 //the rate at which bytes are trasmitted.
 //10000 = 10MB/s
-var sysTxOptions =
+var mTxOptions =
 {
   width: 420, 
   height: 140,
@@ -135,7 +165,7 @@ var sysTxOptions =
 };
 //the rate at which bytes are recieved.
 //10000 = 10MB/s
-var sysRxOptions =
+var mRxOptions =
 {
   width: 420, 
   height: 140,

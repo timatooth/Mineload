@@ -82,6 +82,7 @@ $_jsonapi_salt = "' . $_POST["jsonapi_salt"] . '";
     <title>Mineload Installation</title>
     <link rel="stylesheet" href="installer.css" media="screen">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="../js/jsonapi.js" type="text/javascript"></script>
     <script src="js/installer.js" type="text/javascript"></script>
   </head>
   <body>
@@ -199,13 +200,16 @@ $_jsonapi_salt = "' . $_POST["jsonapi_salt"] . '";
           JSONAPI Username
         </p>
         <p>
-          <input name="jsonapi_password" type="password" class="input" id="jsonapi_password">
+          <input name="jsonapi_password" type="text" class="input" id="jsonapi_password">
           JSONAPI password
         </p>
         <p>
           <input name="jsonapi_salt" type="text" class="input" id="jsonapi_salt">
           JSONAPI salt
         </p>
+        <ul class="states">
+          <li id="jsonapi_status"></li>
+        </ul>
         <h2>Mineload Web Interface Settings</h2>
         <p>
           Be sure to remember your super administrator login details. Keeping the check

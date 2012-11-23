@@ -18,21 +18,45 @@ $(document).ready(function(){
     });
   });
   
+  $('#jsonapi_salt').blur(function(){
+    $("#jsonapi_status").attr("class", "warning");
+    $('#jsonapi_status').html("Contacting JSONAPI...<img src='images/radar.gif' alt='Polling...' width='25' height='25' />\n\
+      This should take less than a second.");
+    var options = {
+      host: $('#jsonapi_host').val(),
+      port: $('#jsonapi_port').val(),
+      username: $('#jsonapi_username').val(),
+      password: $('#jsonapi_password').val(),
+      salt: $('#jsonapi_salt').val()
+    };
+    
+    var json = new JSONAPI(options);
+    json.call("getPluginVersion", ["JSONAPI"], function(req){
+      if(req.result == "success"){
+        $('#jsonapi_status').attr("class", "success");
+        $('#jsonapi_status').html("JSONAPI version: " + req.success);
+      }
+      else{
+        $('#mlp_status').attr("class", "error");
+        $('#mlp_status').html("<strong>There was an error contacting JSONAPI</strong> " + req.success);
+      }
+    });
+  });
   
 });
 
 function checkMcStatus(){
   $('#mc_status').html("<img src='images/radar.gif' alt='Polling...' width='25' height='25' />");
-    $.ajax({
-      url: "mcpoll.php",
-      success: updateMcStatus,
-      error: updateMcError,
-      timeout: 5000,
-      data: {
-        host: $('#mc_host').val(),
-        port: $('#mc_port').val()
-      }
-    });
+  $.ajax({
+    url: "mcpoll.php",
+    success: updateMcStatus,
+    error: updateMcError,
+    timeout: 5000,
+    data: {
+      host: $('#mc_host').val(),
+      port: $('#mc_port').val()
+    }
+  });
 }
 
 function updateMcStatus(data, textStatus, jqXHR){

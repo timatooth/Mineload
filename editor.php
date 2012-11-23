@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <meta charset="UTF-8" />
   <head>
+    <meta charset="UTF-8" />
     <title>Mineload Editor</title>
     <link rel="stylesheet" href="css/editor.css" />
   </head>

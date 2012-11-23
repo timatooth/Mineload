@@ -129,6 +129,7 @@ Xmlget.prototype.error = function(jqXHR, textStatus, errorThrown){
  */
 Xmlget.prototype.processMineloadPlugin = function(data){
   //start with adding the plugins
+  /*
   var plugins = mineloadPluginData['plugins'];
   var i = 0
   $(data).find("plugin").each(function()
@@ -143,7 +144,8 @@ Xmlget.prototype.processMineloadPlugin = function(data){
     worlds[i] = $(this).text();
     i++;
   })
-  //setting the rest of the fields is trivial.
+  */
+  //TODO change this to self updating loop of xml key:value.
   mineloadPluginData['playercount'] = $(data).find("playercount").text();
   mineloadPluginData['maxplayers'] = $(data).find("maxplayers").text();
   mineloadPluginData['tps'] = $(data).find("tps").text();
@@ -155,7 +157,12 @@ Xmlget.prototype.processMineloadPlugin = function(data){
   mineloadPluginData['cwd'] = $(data).find("cwd").text();
   mineloadPluginData['bukkitversion'] = $(data).find("bukkitversion").text();
   mineloadPluginData['motd'] = $(data).find("motd").text();
+  mineloadPluginData['tx'] = $(data).find("tx").text();
+  mineloadPluginData['rx'] = $(data).find("rx").text();
+  mineloadPluginData['heartbeat'] = $(data).find("heartbeat").text();
+  mineloadPluginData['tpc'] = $(data).find("heartbeat").attr("ticktime");
   
+  /*
   //get the plugins and send them to be addeded into a shiny datatable
   var pluginList = new Array();
   $(data).find("plugin").each(function(){
@@ -216,7 +223,7 @@ Xmlget.prototype.processMineloadPlugin = function(data){
   })
   
   loadWorldTable(worldList);
-  
+  */
   
   mineloadPluginCallback(mineloadPluginData);
   $('#errors').hide();
