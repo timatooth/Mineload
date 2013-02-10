@@ -1,0 +1,1892 @@
+.inventory_container{
+  position: relative;
+  background-image: url('../images/inventory.png');
+  width: 352px;
+  height: 332px;
+  margin: 0px;
+  float: left;
+}
+
+.item {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  background-color: #00aa00;
+  padding: 0px;
+  margin: 4px;
+  color: #ddd;
+  font-size: 0.6em;
+  font-family: sans-serif;
+  font-weight: bolder;
+}
+
+.item p{
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  margin: 0px;
+  padding: 0px;
+}
+
+.inventory_container_meta{
+  position: absolute;
+  width: 180px;
+  height: 144px;
+  left: 160px;
+  top: 14px;
+  background-color: #555555;
+  color: #eee;
+  margin: 0px;
+  padding: 0px;
+}
+
+.chest_container{
+  background-image: url('../images/chestinventory.png');
+  width: 350px;
+  height: 256px;
+  margin: 0px;
+  position: relative;
+  float: left;
+}
+
+
+.sprites.items-3-0-0 {
+  background: url('../images/items.png') no-repeat 0 0;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-1-0 {
+  background: url('../images/items.png') no-repeat 0 -32px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-10-0 {
+  background: url('../images/items.png') no-repeat 0 -64px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-100-0 {
+  background: url('../images/items.png') no-repeat 0 -96px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-101-0 {
+  background: url('../images/items.png') no-repeat 0 -128px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-102-0 {
+  background: url('../images/items.png') no-repeat 0 -160px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-103-0 {
+  background: url('../images/items.png') no-repeat 0 -192px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-104-0 {
+  background: url('../images/items.png') no-repeat 0 -224px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-105-0 {
+  background: url('../images/items.png') no-repeat 0 -256px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-106-0 {
+  background: url('../images/items.png') no-repeat 0 -288px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-107-0 {
+  background: url('../images/items.png') no-repeat 0 -320px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-108-0 {
+  background: url('../images/items.png') no-repeat 0 -352px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-109-0 {
+  background: url('../images/items.png') no-repeat 0 -384px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-11-0 {
+  background: url('../images/items.png') no-repeat 0 -416px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-110-0 {
+  background: url('../images/items.png') no-repeat 0 -448px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-111-0 {
+  background: url('../images/items.png') no-repeat 0 -480px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-112-0 {
+  background: url('../images/items.png') no-repeat 0 -512px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-113-0 {
+  background: url('../images/items.png') no-repeat 0 -544px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-114-0 {
+  background: url('../images/items.png') no-repeat 0 -576px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-115-0 {
+  background: url('../images/items.png') no-repeat 0 -608px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-116-0 {
+  background: url('../images/items.png') no-repeat 0 -640px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-117-0 {
+  background: url('../images/items.png') no-repeat 0 -672px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-118-0 {
+  background: url('../images/items.png') no-repeat 0 -704px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-119-0 {
+  background: url('../images/items.png') no-repeat 0 -736px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-12-0 {
+  background: url('../images/items.png') no-repeat 0 -768px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-120-0 {
+  background: url('../images/items.png') no-repeat 0 -800px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-121-0 {
+  background: url('../images/items.png') no-repeat 0 -832px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-122-0 {
+  background: url('../images/items.png') no-repeat 0 -864px;
+  width: 32px;
+  height: 31px;
+}
+.sprites.items-3-123-0 {
+  background: url('../images/items.png') no-repeat 0 -895px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-124-0 {
+  background: url('../images/items.png') no-repeat 0 -927px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-125-0 {
+  background: url('../images/items.png') no-repeat 0 -959px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-126-0 {
+  background: url('../images/items.png') no-repeat 0 -991px;
+  width: 32px;
+  height: 26px;
+}
+.sprites.items-3-127-0 {
+  background: url('../images/items.png') no-repeat 0 -1017px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-128-0 {
+  background: url('../images/items.png') no-repeat 0 -1049px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-129-0 {
+  background: url('../images/items.png') no-repeat 0 -1081px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-13-0 {
+  background: url('../images/items.png') no-repeat 0 -1113px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-130-0 {
+  background: url('../images/items.png') no-repeat 0 -1145px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-131-0 {
+  background: url('../images/items.png') no-repeat 0 -1177px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-132-0 {
+  background: url('../images/items.png') no-repeat 0 -1209px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-133-0 {
+  background: url('../images/items.png') no-repeat 0 -1241px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-134-0 {
+  background: url('../images/items.png') no-repeat 0 -1273px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-135-0 {
+  background: url('../images/items.png') no-repeat 0 -1305px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-136-0 {
+  background: url('../images/items.png') no-repeat 0 -1337px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-137-0 {
+  background: url('../images/items.png') no-repeat 0 -1369px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-138-0 {
+  background: url('../images/items.png') no-repeat 0 -1401px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-139-0 {
+  background: url('../images/items.png') no-repeat 0 -1433px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-14-0 {
+  background: url('../images/items.png') no-repeat 0 -1465px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-140-0 {
+  background: url('../images/items.png') no-repeat 0 -1497px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-141-0 {
+  background: url('../images/items.png') no-repeat 0 -1529px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-142-0 {
+  background: url('../images/items.png') no-repeat 0 -1561px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-143-0 {
+  background: url('../images/items.png') no-repeat 0 -1593px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-15-0 {
+  background: url('../images/items.png') no-repeat 0 -1625px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-16-0 {
+  background: url('../images/items.png') no-repeat 0 -1657px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-17-0 {
+  background: url('../images/items.png') no-repeat 0 -1689px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-17-1 {
+  background: url('../images/items.png') no-repeat 0 -1721px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-17-2 {
+  background: url('../images/items.png') no-repeat 0 -1753px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-18-0 {
+  background: url('../images/items.png') no-repeat 0 -1785px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-18-1 {
+  background: url('../images/items.png') no-repeat 0 -1817px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-18-2 {
+  background: url('../images/items.png') no-repeat 0 -1849px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-19-0 {
+  background: url('../images/items.png') no-repeat 0 -1881px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-2-0 {
+  background: url('../images/items.png') no-repeat 0 -1913px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-20-0 {
+  background: url('../images/items.png') no-repeat 0 -1945px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-21-0 {
+  background: url('../images/items.png') no-repeat 0 -1977px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-22-0 {
+  background: url('../images/items.png') no-repeat 0 -2009px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-2256-0 {
+  background: url('../images/items.png') no-repeat 0 -2041px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-2257-0 {
+  background: url('../images/items.png') no-repeat 0 -2073px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-2258-0 {
+  background: url('../images/items.png') no-repeat 0 -2105px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-2259-0 {
+  background: url('../images/items.png') no-repeat 0 -2137px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-2260-0 {
+  background: url('../images/items.png') no-repeat 0 -2169px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-2261-0 {
+  background: url('../images/items.png') no-repeat 0 -2201px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-2262-0 {
+  background: url('../images/items.png') no-repeat 0 -2233px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-2263-0 {
+  background: url('../images/items.png') no-repeat 0 -2265px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-2264-0 {
+  background: url('../images/items.png') no-repeat 0 -2297px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-2265-0 {
+  background: url('../images/items.png') no-repeat 0 -2329px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-2266-0 {
+  background: url('../images/items.png') no-repeat 0 -2361px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-23-0 {
+  background: url('../images/items.png') no-repeat 0 -2393px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-24-0 {
+  background: url('../images/items.png') no-repeat 0 -2425px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-25-0 {
+  background: url('../images/items.png') no-repeat 0 -2457px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-256-0 {
+  background: url('../images/items.png') no-repeat 0 -2489px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-257-0 {
+  background: url('../images/items.png') no-repeat 0 -2521px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-258-0 {
+  background: url('../images/items.png') no-repeat 0 -2553px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-259-0 {
+  background: url('../images/items.png') no-repeat 0 -2585px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-26-0 {
+  background: url('../images/items.png') no-repeat 0 -2617px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-260-0 {
+  background: url('../images/items.png') no-repeat 0 -2649px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-261-0 {
+  background: url('../images/items.png') no-repeat 0 -2681px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-262-0 {
+  background: url('../images/items.png') no-repeat 0 -2713px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-263-0 {
+  background: url('../images/items.png') no-repeat 0 -2745px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-263-1 {
+  background: url('../images/items.png') no-repeat 0 -2777px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-264-0 {
+  background: url('../images/items.png') no-repeat 0 -2809px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-265-0 {
+  background: url('../images/items.png') no-repeat 0 -2841px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-266-0 {
+  background: url('../images/items.png') no-repeat 0 -2873px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-267-0 {
+  background: url('../images/items.png') no-repeat 0 -2905px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-268-0 {
+  background: url('../images/items.png') no-repeat 0 -2937px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-269-0 {
+  background: url('../images/items.png') no-repeat 0 -2969px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-27-0 {
+  background: url('../images/items.png') no-repeat 0 -3001px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-270-0 {
+  background: url('../images/items.png') no-repeat 0 -3033px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-271-0 {
+  background: url('../images/items.png') no-repeat 0 -3065px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-272-0 {
+  background: url('../images/items.png') no-repeat 0 -3097px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-273-0 {
+  background: url('../images/items.png') no-repeat 0 -3129px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-274-0 {
+  background: url('../images/items.png') no-repeat 0 -3161px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-275-0 {
+  background: url('../images/items.png') no-repeat 0 -3193px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-276-0 {
+  background: url('../images/items.png') no-repeat 0 -3225px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-277-0 {
+  background: url('../images/items.png') no-repeat 0 -3257px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-278-0 {
+  background: url('../images/items.png') no-repeat 0 -3289px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-279-0 {
+  background: url('../images/items.png') no-repeat 0 -3321px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-28-0 {
+  background: url('../images/items.png') no-repeat 0 -3353px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-280-0 {
+  background: url('../images/items.png') no-repeat 0 -3385px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-281-0 {
+  background: url('../images/items.png') no-repeat 0 -3417px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-282-0 {
+  background: url('../images/items.png') no-repeat 0 -3449px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-283-0 {
+  background: url('../images/items.png') no-repeat 0 -3481px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-284-0 {
+  background: url('../images/items.png') no-repeat 0 -3513px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-285-0 {
+  background: url('../images/items.png') no-repeat 0 -3545px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-286-0 {
+  background: url('../images/items.png') no-repeat 0 -3577px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-287-0 {
+  background: url('../images/items.png') no-repeat 0 -3609px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-288-0 {
+  background: url('../images/items.png') no-repeat 0 -3641px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-289-0 {
+  background: url('../images/items.png') no-repeat 0 -3673px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-29-0 {
+  background: url('../images/items.png') no-repeat 0 -3705px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-290-0 {
+  background: url('../images/items.png') no-repeat 0 -3737px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-291-0 {
+  background: url('../images/items.png') no-repeat 0 -3769px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-292-0 {
+  background: url('../images/items.png') no-repeat 0 -3801px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-293-0 {
+  background: url('../images/items.png') no-repeat 0 -3833px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-294-0 {
+  background: url('../images/items.png') no-repeat 0 -3865px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-295-0 {
+  background: url('../images/items.png') no-repeat 0 -3897px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-296-0 {
+  background: url('../images/items.png') no-repeat 0 -3929px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-297-0 {
+  background: url('../images/items.png') no-repeat 0 -3961px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-298-0 {
+  background: url('../images/items.png') no-repeat 0 -3993px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-299-0 {
+  background: url('../images/items.png') no-repeat 0 -4025px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-3-0 {
+  background: url('../images/items.png') no-repeat 0 -4057px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-30-0 {
+  background: url('../images/items.png') no-repeat 0 -4089px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-300-0 {
+  background: url('../images/items.png') no-repeat 0 -4121px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-301-0 {
+  background: url('../images/items.png') no-repeat 0 -4153px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-302-0 {
+  background: url('../images/items.png') no-repeat 0 -4185px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-303-0 {
+  background: url('../images/items.png') no-repeat 0 -4217px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-304-0 {
+  background: url('../images/items.png') no-repeat 0 -4249px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-305-0 {
+  background: url('../images/items.png') no-repeat 0 -4281px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-306-0 {
+  background: url('../images/items.png') no-repeat 0 -4313px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-307-0 {
+  background: url('../images/items.png') no-repeat 0 -4345px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-308-0 {
+  background: url('../images/items.png') no-repeat 0 -4377px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-309-0 {
+  background: url('../images/items.png') no-repeat 0 -4409px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-31-0 {
+  background: url('../images/items.png') no-repeat 0 -4441px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-31-1 {
+  background: url('../images/items.png') no-repeat 0 -4473px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-31-2 {
+  background: url('../images/items.png') no-repeat 0 -4505px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-310-0 {
+  background: url('../images/items.png') no-repeat 0 -4537px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-311-0 {
+  background: url('../images/items.png') no-repeat 0 -4569px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-312-0 {
+  background: url('../images/items.png') no-repeat 0 -4601px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-313-0 {
+  background: url('../images/items.png') no-repeat 0 -4633px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-314-0 {
+  background: url('../images/items.png') no-repeat 0 -4665px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-315-0 {
+  background: url('../images/items.png') no-repeat 0 -4697px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-316-0 {
+  background: url('../images/items.png') no-repeat 0 -4729px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-317-0 {
+  background: url('../images/items.png') no-repeat 0 -4761px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-318-0 {
+  background: url('../images/items.png') no-repeat 0 -4793px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-319-0 {
+  background: url('../images/items.png') no-repeat 0 -4825px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-32-0 {
+  background: url('../images/items.png') no-repeat 0 -4857px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-320-0 {
+  background: url('../images/items.png') no-repeat 0 -4889px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-321-0 {
+  background: url('../images/items.png') no-repeat 0 -4921px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-322-0 {
+  background: url('../images/items.png') no-repeat 0 -4953px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-323-0 {
+  background: url('../images/items.png') no-repeat 0 -4985px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-324-0 {
+  background: url('../images/items.png') no-repeat 0 -5017px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-325-0 {
+  background: url('../images/items.png') no-repeat 0 -5049px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-326-0 {
+  background: url('../images/items.png') no-repeat 0 -5081px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-327-0 {
+  background: url('../images/items.png') no-repeat 0 -5113px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-328-0 {
+  background: url('../images/items.png') no-repeat 0 -5145px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-329-0 {
+  background: url('../images/items.png') no-repeat 0 -5177px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-33-0 {
+  background: url('../images/items.png') no-repeat 0 -5209px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-330-0 {
+  background: url('../images/items.png') no-repeat 0 -5241px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-331-0 {
+  background: url('../images/items.png') no-repeat 0 -5273px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-332-0 {
+  background: url('../images/items.png') no-repeat 0 -5305px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-333-0 {
+  background: url('../images/items.png') no-repeat 0 -5337px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-334-0 {
+  background: url('../images/items.png') no-repeat 0 -5369px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-335-0 {
+  background: url('../images/items.png') no-repeat 0 -5401px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-336-0 {
+  background: url('../images/items.png') no-repeat 0 -5433px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-337-0 {
+  background: url('../images/items.png') no-repeat 0 -5465px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-338-0 {
+  background: url('../images/items.png') no-repeat 0 -5497px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-339-0 {
+  background: url('../images/items.png') no-repeat 0 -5529px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-34-0 {
+  background: url('../images/items.png') no-repeat 0 -5561px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-340-0 {
+  background: url('../images/items.png') no-repeat 0 -5593px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-341-0 {
+  background: url('../images/items.png') no-repeat 0 -5625px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-342-0 {
+  background: url('../images/items.png') no-repeat 0 -5657px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-343-0 {
+  background: url('../images/items.png') no-repeat 0 -5689px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-344-0 {
+  background: url('../images/items.png') no-repeat 0 -5721px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-345-0 {
+  background: url('../images/items.png') no-repeat 0 -5753px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-346-0 {
+  background: url('../images/items.png') no-repeat 0 -5785px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-347-0 {
+  background: url('../images/items.png') no-repeat 0 -5817px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-348-0 {
+  background: url('../images/items.png') no-repeat 0 -5849px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-349-0 {
+  background: url('../images/items.png') no-repeat 0 -5881px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-35-0 {
+  background: url('../images/items.png') no-repeat 0 -5913px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-35-1 {
+  background: url('../images/items.png') no-repeat 0 -5945px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-35-10 {
+  background: url('../images/items.png') no-repeat 0 -5977px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-35-11 {
+  background: url('../images/items.png') no-repeat 0 -6009px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-35-12 {
+  background: url('../images/items.png') no-repeat 0 -6041px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-35-13 {
+  background: url('../images/items.png') no-repeat 0 -6073px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-35-14 {
+  background: url('../images/items.png') no-repeat 0 -6105px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-35-15 {
+  background: url('../images/items.png') no-repeat 0 -6137px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-35-2 {
+  background: url('../images/items.png') no-repeat 0 -6169px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-35-3 {
+  background: url('../images/items.png') no-repeat 0 -6201px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-35-4 {
+  background: url('../images/items.png') no-repeat 0 -6233px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-35-5 {
+  background: url('../images/items.png') no-repeat 0 -6265px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-35-6 {
+  background: url('../images/items.png') no-repeat 0 -6297px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-35-7 {
+  background: url('../images/items.png') no-repeat 0 -6329px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-35-8 {
+  background: url('../images/items.png') no-repeat 0 -6361px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-35-9 {
+  background: url('../images/items.png') no-repeat 0 -6393px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-350-0 {
+  background: url('../images/items.png') no-repeat 0 -6425px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-351-0 {
+  background: url('../images/items.png') no-repeat 0 -6457px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-351-1 {
+  background: url('../images/items.png') no-repeat 0 -6489px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-351-10 {
+  background: url('../images/items.png') no-repeat 0 -6521px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-351-11 {
+  background: url('../images/items.png') no-repeat 0 -6553px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-351-12 {
+  background: url('../images/items.png') no-repeat 0 -6585px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-351-13 {
+  background: url('../images/items.png') no-repeat 0 -6617px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-351-14 {
+  background: url('../images/items.png') no-repeat 0 -6649px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-351-15 {
+  background: url('../images/items.png') no-repeat 0 -6681px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-351-2 {
+  background: url('../images/items.png') no-repeat 0 -6713px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-351-3 {
+  background: url('../images/items.png') no-repeat 0 -6745px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-351-4 {
+  background: url('../images/items.png') no-repeat 0 -6777px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-351-5 {
+  background: url('../images/items.png') no-repeat 0 -6809px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-351-6 {
+  background: url('../images/items.png') no-repeat 0 -6841px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-351-7 {
+  background: url('../images/items.png') no-repeat 0 -6873px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-351-8 {
+  background: url('../images/items.png') no-repeat 0 -6905px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-351-9 {
+  background: url('../images/items.png') no-repeat 0 -6937px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-352-0 {
+  background: url('../images/items.png') no-repeat 0 -6969px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-353-0 {
+  background: url('../images/items.png') no-repeat 0 -7001px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-354-0 {
+  background: url('../images/items.png') no-repeat 0 -7033px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-355-0 {
+  background: url('../images/items.png') no-repeat 0 -7065px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-356-0 {
+  background: url('../images/items.png') no-repeat 0 -7097px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-357-0 {
+  background: url('../images/items.png') no-repeat 0 -7129px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-358-0 {
+  background: url('../images/items.png') no-repeat 0 -7161px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-359-0 {
+  background: url('../images/items.png') no-repeat 0 -7193px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-360-0 {
+  background: url('../images/items.png') no-repeat 0 -7225px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-361-0 {
+  background: url('../images/items.png') no-repeat 0 -7257px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-362-0 {
+  background: url('../images/items.png') no-repeat 0 -7289px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-363-0 {
+  background: url('../images/items.png') no-repeat 0 -7321px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-364-0 {
+  background: url('../images/items.png') no-repeat 0 -7353px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-365-0 {
+  background: url('../images/items.png') no-repeat 0 -7385px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-366-0 {
+  background: url('../images/items.png') no-repeat 0 -7417px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-367-0 {
+  background: url('../images/items.png') no-repeat 0 -7449px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-368-0 {
+  background: url('../images/items.png') no-repeat 0 -7481px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-369-0 {
+  background: url('../images/items.png') no-repeat 0 -7513px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-37-0 {
+  background: url('../images/items.png') no-repeat 0 -7545px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-370-0 {
+  background: url('../images/items.png') no-repeat 0 -7577px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-371-0 {
+  background: url('../images/items.png') no-repeat 0 -7609px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-372-0 {
+  background: url('../images/items.png') no-repeat 0 -7641px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-373-0 {
+  background: url('../images/items.png') no-repeat 0 -7673px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-374-0 {
+  background: url('../images/items.png') no-repeat 0 -7705px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-375-0 {
+  background: url('../images/items.png') no-repeat 0 -7737px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-376-0 {
+  background: url('../images/items.png') no-repeat 0 -7769px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-377-0 {
+  background: url('../images/items.png') no-repeat 0 -7801px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-378-0 {
+  background: url('../images/items.png') no-repeat 0 -7833px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-379-0 {
+  background: url('../images/items.png') no-repeat 0 -7865px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-38-0 {
+  background: url('../images/items.png') no-repeat 0 -7897px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-380-0 {
+  background: url('../images/items.png') no-repeat 0 -7929px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-381-0 {
+  background: url('../images/items.png') no-repeat 0 -7961px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-382-0 {
+  background: url('../images/items.png') no-repeat 0 -7993px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-383-120 {
+  background: url('../images/items.png') no-repeat 0 -8025px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-383-50 {
+  background: url('../images/items.png') no-repeat 0 -8057px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-383-51 {
+  background: url('../images/items.png') no-repeat 0 -8089px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-383-52 {
+  background: url('../images/items.png') no-repeat 0 -8121px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-383-54 {
+  background: url('../images/items.png') no-repeat 0 -8153px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-383-55 {
+  background: url('../images/items.png') no-repeat 0 -8185px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-383-56 {
+  background: url('../images/items.png') no-repeat 0 -8217px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-383-57 {
+  background: url('../images/items.png') no-repeat 0 -8249px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-383-58 {
+  background: url('../images/items.png') no-repeat 0 -8281px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-383-59 {
+  background: url('../images/items.png') no-repeat 0 -8313px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-383-60 {
+  background: url('../images/items.png') no-repeat 0 -8345px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-383-61 {
+  background: url('../images/items.png') no-repeat 0 -8377px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-383-62 {
+  background: url('../images/items.png') no-repeat 0 -8409px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-383-90 {
+  background: url('../images/items.png') no-repeat 0 -8441px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-383-91 {
+  background: url('../images/items.png') no-repeat 0 -8473px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-383-92 {
+  background: url('../images/items.png') no-repeat 0 -8505px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-383-93 {
+  background: url('../images/items.png') no-repeat 0 -8537px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-383-94 {
+  background: url('../images/items.png') no-repeat 0 -8569px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-383-95 {
+  background: url('../images/items.png') no-repeat 0 -8601px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-383-96 {
+  background: url('../images/items.png') no-repeat 0 -8633px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-383-98 {
+  background: url('../images/items.png') no-repeat 0 -8665px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-384-0 {
+  background: url('../images/items.png') no-repeat 0 -8697px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-385-0 {
+  background: url('../images/items.png') no-repeat 0 -8729px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-386-0 {
+  background: url('../images/items.png') no-repeat 0 -8761px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-387-0 {
+  background: url('../images/items.png') no-repeat 0 -8793px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-388-0 {
+  background: url('../images/items.png') no-repeat 0 -8825px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-389-0 {
+  background: url('../images/items.png') no-repeat 0 -8857px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-39-0 {
+  background: url('../images/items.png') no-repeat 0 -8889px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-390-0 {
+  background: url('../images/items.png') no-repeat 0 -8921px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-391-0 {
+  background: url('../images/items.png') no-repeat 0 -8953px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-392-0 {
+  background: url('../images/items.png') no-repeat 0 -8985px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-393-0 {
+  background: url('../images/items.png') no-repeat 0 -9017px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-394-0 {
+  background: url('../images/items.png') no-repeat 0 -9049px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-395-0 {
+  background: url('../images/items.png') no-repeat 0 -9081px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-396-0 {
+  background: url('../images/items.png') no-repeat 0 -9113px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-4-0 {
+  background: url('../images/items.png') no-repeat 0 -9145px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-40-0 {
+  background: url('../images/items.png') no-repeat 0 -9177px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-41-0 {
+  background: url('../images/items.png') no-repeat 0 -9209px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-42-0 {
+  background: url('../images/items.png') no-repeat 0 -9241px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-43-0 {
+  background: url('../images/items.png') no-repeat 0 -9273px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-43-1 {
+  background: url('../images/items.png') no-repeat 0 -9305px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-43-2 {
+  background: url('../images/items.png') no-repeat 0 -9337px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-43-3 {
+  background: url('../images/items.png') no-repeat 0 -9369px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-43-4 {
+  background: url('../images/items.png') no-repeat 0 -9401px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-43-5 {
+  background: url('../images/items.png') no-repeat 0 -9433px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-44-0 {
+  background: url('../images/items.png') no-repeat 0 -9465px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-44-1 {
+  background: url('../images/items.png') no-repeat 0 -9497px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-44-2 {
+  background: url('../images/items.png') no-repeat 0 -9529px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-44-3 {
+  background: url('../images/items.png') no-repeat 0 -9561px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-44-4 {
+  background: url('../images/items.png') no-repeat 0 -9593px;
+  width: 36px;
+  height: 36px;
+}
+.sprites.items-3-44-5 {
+  background: url('../images/items.png') no-repeat 0 -9629px;
+  width: 36px;
+  height: 36px;
+}
+.sprites.items-3-45-0 {
+  background: url('../images/items.png') no-repeat 0 -9665px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-46-0 {
+  background: url('../images/items.png') no-repeat 0 -9697px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-47-0 {
+  background: url('../images/items.png') no-repeat 0 -9729px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-48-0 {
+  background: url('../images/items.png') no-repeat 0 -9761px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-49-0 {
+  background: url('../images/items.png') no-repeat 0 -9793px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-5-0 {
+  background: url('../images/items.png') no-repeat 0 -9825px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-50-0 {
+  background: url('../images/items.png') no-repeat 0 -9857px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-51-0 {
+  background: url('../images/items.png') no-repeat 0 -9889px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-52-0 {
+  background: url('../images/items.png') no-repeat 0 -9921px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-53-0 {
+  background: url('../images/items.png') no-repeat 0 -9953px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-54-0 {
+  background: url('../images/items.png') no-repeat 0 -9985px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-55-0 {
+  background: url('../images/items.png') no-repeat 0 -10017px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-56-0 {
+  background: url('../images/items.png') no-repeat 0 -10049px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-57-0 {
+  background: url('../images/items.png') no-repeat 0 -10081px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-58-0 {
+  background: url('../images/items.png') no-repeat 0 -10113px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-59-0 {
+  background: url('../images/items.png') no-repeat 0 -10145px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-6-0 {
+  background: url('../images/items.png') no-repeat 0 -10177px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-6-1 {
+  background: url('../images/items.png') no-repeat 0 -10209px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-6-2 {
+  background: url('../images/items.png') no-repeat 0 -10241px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-60-0 {
+  background: url('../images/items.png') no-repeat 0 -10273px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-61-0 {
+  background: url('../images/items.png') no-repeat 0 -10305px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-62-0 {
+  background: url('../images/items.png') no-repeat 0 -10337px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-63-0 {
+  background: url('../images/items.png') no-repeat 0 -10369px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-64-0 {
+  background: url('../images/items.png') no-repeat 0 -10401px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-65-0 {
+  background: url('../images/items.png') no-repeat 0 -10433px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-66-0 {
+  background: url('../images/items.png') no-repeat 0 -10465px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-67-0 {
+  background: url('../images/items.png') no-repeat 0 -10497px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-68-0 {
+  background: url('../images/items.png') no-repeat 0 -10529px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-69-0 {
+  background: url('../images/items.png') no-repeat 0 -10561px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-7-0 {
+  background: url('../images/items.png') no-repeat 0 -10593px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-70-0 {
+  background: url('../images/items.png') no-repeat 0 -10625px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-71-0 {
+  background: url('../images/items.png') no-repeat 0 -10657px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-72-0 {
+  background: url('../images/items.png') no-repeat 0 -10689px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-73-0 {
+  background: url('../images/items.png') no-repeat 0 -10721px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-74-0 {
+  background: url('../images/items.png') no-repeat 0 -10753px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-75-0 {
+  background: url('../images/items.png') no-repeat 0 -10785px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-76-0 {
+  background: url('../images/items.png') no-repeat 0 -10817px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-77-0 {
+  background: url('../images/items.png') no-repeat 0 -10849px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-78-0 {
+  background: url('../images/items.png') no-repeat 0 -10881px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-79-0 {
+  background: url('../images/items.png') no-repeat 0 -10913px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-8-0 {
+  background: url('../images/items.png') no-repeat 0 -10945px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-80-0 {
+  background: url('../images/items.png') no-repeat 0 -10977px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-81-0 {
+  background: url('../images/items.png') no-repeat 0 -11009px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-82-0 {
+  background: url('../images/items.png') no-repeat 0 -11041px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-83-0 {
+  background: url('../images/items.png') no-repeat 0 -11073px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-84-0 {
+  background: url('../images/items.png') no-repeat 0 -11105px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-85-0 {
+  background: url('../images/items.png') no-repeat 0 -11137px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-86-0 {
+  background: url('../images/items.png') no-repeat 0 -11169px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-87-0 {
+  background: url('../images/items.png') no-repeat 0 -11201px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-88-0 {
+  background: url('../images/items.png') no-repeat 0 -11233px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-89-0 {
+  background: url('../images/items.png') no-repeat 0 -11265px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-9-0 {
+  background: url('../images/items.png') no-repeat 0 -11297px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-90-0 {
+  background: url('../images/items.png') no-repeat 0 -11329px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-91-0 {
+  background: url('../images/items.png') no-repeat 0 -11361px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-92-0 {
+  background: url('../images/items.png') no-repeat 0 -11393px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-93-0 {
+  background: url('../images/items.png') no-repeat 0 -11425px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-94-0 {
+  background: url('../images/items.png') no-repeat 0 -11457px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-95-0 {
+  background: url('../images/items.png') no-repeat 0 -11489px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-96-0 {
+  background: url('../images/items.png') no-repeat 0 -11521px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-97-0 {
+  background: url('../images/items.png') no-repeat 0 -11553px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-97-1 {
+  background: url('../images/items.png') no-repeat 0 -11585px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-97-2 {
+  background: url('../images/items.png') no-repeat 0 -11617px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-98-0 {
+  background: url('../images/items.png') no-repeat 0 -11649px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-98-1 {
+  background: url('../images/items.png') no-repeat 0 -11681px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-98-2 {
+  background: url('../images/items.png') no-repeat 0 -11713px;
+  width: 32px;
+  height: 32px;
+}
+.sprites.items-3-99-0 {
+  background: url('../images/items.png') no-repeat 0 -11745px;
+  width: 32px;
+  height: 32px;
+}
