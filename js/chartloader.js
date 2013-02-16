@@ -62,13 +62,13 @@ var pluginCallback = function updatePluginData(plugindata){
   $('#plugin_rxrate').text(rxRate);
   
   //populate the google tables with new data
-  var playercount = Number(plugindata['playercount']) / Number(plugindata['maxplayers']);
+  var playercount = Number(plugindata['playercount']) / Number(plugindata['maxplayers']) * 100;
   if (isNaN(playercount)){
     playercount = 0;
   }
   mPlayerData = google.visualization.arrayToDataTable([
     ['Label', 'Value'],
-    ['Slots %', playercount]
+    ['Slots %', Math.round(playercount, 2)]
     ]);
   var memused = Math.round(Number(plugindata['memoryused']) / Number(plugindata['maxmemory']) * 100);
   if(isNaN(memused)){

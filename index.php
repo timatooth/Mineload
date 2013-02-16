@@ -23,20 +23,22 @@ if (isset($_SESSION['user'])) {
   <body>
 
     <div id="loginfieldset">
-      <h3>Mineload Web 0.0.2 Alpha</h3>
-      
       <form action="login.php" method="post">
         <fieldset>
+          <img src="images/mineload-logo-silver.png" alt="Mineload" width="400" height="140" />
           <table>
-            <tr><td><label for="loginform">Username:</label></td><td><input type="text" id="loginform" name="loginform" /></td></tr>
-            <tr><td><label for="passwordform">Password:</label></td><td><input type="password" id="passwordform" name="passwordform" /></td></tr>
-            <tr><td></td><td><input type="submit" value="Login" /></td></tr>
+            <tr><td><label for="loginform">Username:</label></td><td><input class="loginfield" type="text" id="loginform" name="loginform" /></td></tr>
+            <tr><td><label for="passwordform">Password:</label></td><td><input class="loginfield" type="password" id="passwordform" name="passwordform" /></td></tr>
+            <tr><td></td><td><input id="loginbutton" type="submit" value="Login" /></td></tr>
           </table>
           <ul class="states">
             <li><?php if(isset($_GET['error'])){echo $_GET['error'];} ?></li>
           </ul>
         </fieldset>
       </form>
+    </div>
+    <div id="footer">
+      <p>Mineload Web Interface version 0.0.4 Alpha by Tim Sullivan (<a href="https://github.com/Timatooth">Timatooth</a>) on <a href="http://dev.bukkit.org/server-mods/mineload">BukkitDev</a></p>
     </div>
   </body>
 </html>

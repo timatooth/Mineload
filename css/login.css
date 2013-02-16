@@ -2,10 +2,31 @@ body{
   background-color: #222;
 }
 #loginfieldset {
-  width: 300px;
+  width: 430px;
   margin: auto;
   background-color: #5C6573;
-  padding: 30px;
+  padding: 10px;
   color: #111;
+  font-size: 1.2em;
 }
 
+.loginfield{
+  width: 250px;
+  height: 30px;
+  font-size: 1.2em;
+}
+
+#loginbutton {
+  width: 80px;
+  height: 35px;
+}
+
+#footer {
+  position: absolute;
+  bottom: 1px;
+  right: 50px;
+}
+
+.states{
+  color: #610202;
+}
