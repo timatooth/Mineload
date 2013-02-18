@@ -2,8 +2,8 @@
 session_start();
 if(isset($_SESSION['user'])){
 	$consoleCommand = $_POST['consoleCommand'];
-	include 'jsonapi.php';
-	require('json.php');
+	include '../jsonapi.php';
+	require('../json.php');
 //	$api = new JSONAPI($_jsonapi_host, $_jsonapi_port, $_jsonapi_username, $_jsonapi_password, $_jsonapi_salt);
 //	$api = new JSONAPI('192.168.1.31', 20059, 'frost', 'ts$7291', 'fmc');
 	$api = new JSONAPI($data['host'], $data['port'], $data['username'], $data['password'], $data['salt']);
