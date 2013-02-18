@@ -8,15 +8,21 @@
     <script type="text/javascript" src="js/inventory.js"></script>
   </head>
   <body>
+    <h1>Inventory test page</h1>
+    <p>This page is experimental, it will soon be added into the interface. You can
+      only <strong>view</strong> players inventory, not edit it. If LWC is installed
+    and you have my LWCJsonapi bridge pluigin, you can view the contents of all chests owned
+    by a specific player.</p>
+    <p>Items in green are items I don't have an image for.</p>
     <div class="datablock" id="inventory_page">
+      <button class="ico3">Load Playerlist</button>
       <select id="inventory_player_list">
         <option>Playername:</option>
       </select>
-      <button class="ico3">ico3</button>
-      <button id="mocktest">Load</button>
-      <button id="inventory_page_button">Whole Page</button>
-      <button id="inventory_chest_button">Chests</button>
-      <button id="inventory_mineload_test">Chest Tester Handler</button>
+      
+      <button id="mocktest">Random Ids</button>
+      <button id="inventory_page_button">All players *Lag warning*</button>
+      <button id="inventory_chest_button">Reverse LWC Chest lookup *in the works*</button>
       <span id="inventory_status">Load Players</span>
       <div class="inventory_container"></div>
     </div>
