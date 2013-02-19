@@ -15,7 +15,6 @@ $(document).ready(function() {
 			success: function(data, textStatus, jqXHR) {
 			},
 			error: function(jqXHR, textStatus, errorThrown) {
-				$('#consoleCommand').replaceWith('<div class="error">Error!</div>');
 			}
 		});
 	return false;
