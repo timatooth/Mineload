@@ -1,9 +1,7 @@
 <?php
-session_start();
-if(isset($_SESSION['user'])){
 	$consoleCommand = $_POST['consoleCommand'];
 	include '../jsonapi.php';
-	require('../json.php');
+	require('json.php');
 	$api = new JSONAPI($data['host'], $data['port'], $data['username'], $data['password'], $data['salt']);
 	$consoleLog = $api->call("getLatestConsoleLogsWithLimit", array(150));
 	$consoleLines = $consoleLog['success'];
@@ -72,6 +70,4 @@ if(isset($_SESSION['user'])){
 	if(isset($consoleCommand)) {
 			$api->call('runConsoleCommand', array(trim($consoleCommand)));
 	}
-
-}
 ?>
