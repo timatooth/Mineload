@@ -13,7 +13,7 @@ if(isset($_SESSION['user'])){
   $data['username'] = $_jsonapi_username;
   $data['password'] = $_jsonapi_password;
   $data['salt'] = $_jsonapi_salt;
-  echo json_encode($data);
+ // echo json_encode($data);
 }
 
 else {
