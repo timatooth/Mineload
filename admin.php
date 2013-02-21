@@ -9,6 +9,7 @@ if (isset($_SESSION['user'])) {
     $errors[] = "Please delete or rename the <strong>install</strong> folder for security purposes. Then refresh.";
   }
 } else {
+  //not logged in. redirect them to login page, halt script execution.
   header("Location: index.php");
   exit();
 }
@@ -20,10 +21,9 @@ if (isset($_SESSION['user'])) {
   <link media="all" rel="stylesheet" type="text/css" href="css/all.css" />
   <link media="all" rel="stylesheet" type="text/css" href="css/dashboard.css" />
   <link media="all" rel="stylesheet" type="text/css" href="css/inventory.css" />
-
-
   <!--[if lt IE 9]><link rel="stylesheet" type="text/css" href="css/ie.css" /><![endif]-->
 </head>
+
 <body>
   <script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
   <script type="text/javascript" src="js/jquery.main.js"></script>
@@ -137,31 +137,6 @@ if (isset($_SESSION['user'])) {
                 </table>
               </div>
               <div style="clear: left"></div>
-              <!--
-              <div class="text-section">
-                <h1>Mineload System Data</h1>
-                <p>Data collected from the php script using Linux functions.</p>
-              </div>
-
-              <div class="datablock">
-                <h3>Server Vital Stats</h3>
-                <table>
-                  <tr><td>Load:</td><td id="sys_load">Loading...</td></tr>
-                  <tr><td>Memory used:</td><td id="sys_memory">Loading...</td></tr>
-                  <tr><td>Days online:</td><td id="sys_uptime">Loading...</td></tr>
-                </table>
-              </div>
-              
-              <div class="datablock">
-                <h3>Minecraft Poll Data</h3>
-                <table>
-                  <tr><td>Message of the day: </td><td id="sys_motd">Loading...</td></tr>
-                  <tr><td>Players Online: </td><td id="sys_playersonline">Loading...</td></tr>
-                  <tr><td>Poll latency ('ping'): </td><td id="sys_latency">Loading...</td></tr>
-                </table>
-              </div>
-              -->
-              <div style="clear: left"></div>
               <div class="text-section">
                 <h1>Mineload Updates</h1>
                 <p>Updates from my blog feed</p>
@@ -238,7 +213,7 @@ if (isset($_SESSION['user'])) {
                 <p>This is a quick overview of some features</p>
               </div>
               <ul class="states">
-                <!--<li class="warning">This one will be tough. Might just implement java tail -f class.</li>-->
+                <!-- FrostEnergy's console viewer -->
                 <?php include 'console/console.php'; ?>
               </ul>
             </article>
@@ -247,7 +222,7 @@ if (isset($_SESSION['user'])) {
             <article>
               <div class="text-section">
                 <h1>Server Plugins</h1>
-                <p>View status of enabled plugins</p>
+                <p>View plugin versions. TODO</p>
               </div>
               <div id="plugin_table">
 
@@ -261,7 +236,7 @@ if (isset($_SESSION['user'])) {
                 <p>This is a quick overview of some features</p>
               </div>
               <ul class="states">
-                <li class="warning">You will be able to edit the config.php settings here.</li>
+                <li class="warning">TODO: You will be able to edit the config.php settings here.</li>
               </ul>
             </article>
           </div>
