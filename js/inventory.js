@@ -143,7 +143,7 @@ $(document).ready(function(){
   
   $('#inventory_chest_button').click(function(){
     var choice = $('#inventory_player_list option:selected').text();
-    json.call("mineload.getLWCPlayerChests", [choice], function(res){
+    json.call("mineload.getPlayerLWCChests", [choice], function(res){
       //now spit up the nasty comman delimited code response
       var response = res.success;
       for(var c = 0; c < response.length; c++){

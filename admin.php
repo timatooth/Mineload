@@ -26,12 +26,13 @@ if (isset($_SESSION['user'])) {
 
 <body>
   <script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
-  <script type="text/javascript" src="js/jquery.main.js"></script>
+  <!-- main admin page layout and buttons stuff -->
+  <script type="text/javascript" src="js/admin.main.js"></script>
   <script type="text/javascript" src="js/jsonapi.js"></script>
   <!--Options for chart scale, colours, animation here-->
   <script type="text/javascript" src="js/chartoptions.js"></script>
   <script type='text/javascript' src='https://www.google.com/jsapi'></script>
-
+  <!-- gets the mineloadplugin xml data -->
   <script type="text/javascript" src="js/Xmlget.js"></script>
   <script type='text/javascript' src="js/chartloader.js"></script>
 
@@ -45,16 +46,14 @@ if (isset($_SESSION['user'])) {
   <script type="text/javascript" charset="utf8" src="js/updatefeed.js"></script>
   <script type="text/javascript" charset="utf8" src="js/alert.js"></script>
   <script type="text/javascript" charset="utf8" src="js/inventory.js"></script>
-
+  
   <div id="wrapper">
     <div id="content">
       <div class="c1">
         <div class="controls">
           <nav class="links">
             <ul>
-              <li><a href="#" class="ico1">Messages <!--<span class="num">26</span>--></a></li>
-              <li><a href="#" class="ico2">Alerts <!--<span class="num">5</span>--></a></li>
-              <li><a href="editor.php" target="_blank" class="ico3">Text Editor <!--<span class="num"></span>--></a></li>
+              <li><a href="editor.php" target="_blank" class="ico3">Plugin Configuration Editor <!--<span class="num"></span>--></a></li>
             </ul>
           </nav>
           <div class="profile-box">
@@ -214,7 +213,7 @@ if (isset($_SESSION['user'])) {
               </div>
               <ul class="states">
                 <!-- FrostEnergy's console viewer -->
-                <?php include 'console/console.php'; ?>
+                <?php// include 'console/console.php'; ?>
               </ul>
             </article>
           </div>

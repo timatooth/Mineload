@@ -15,12 +15,6 @@ $string = '<?php
 $_mc_host = "' . $_POST["mc_host"] . '";
 $_mc_port = ' . $_POST["mc_port"] . ';
 
-/*** MySQL Database for logging mineload statistics. ***/
-$_dbhost = "' . $_POST["dbhost"] . '";
-$_dbuname = "' . $_POST["dbuname"] . '";
-$_dbpass = "' . $_POST["dbpass"] . '";
-$_dbname = "' . $_POST["dbname"] . '";
-
 /*** MineloadPlugin connection ***/
 //Mineload Adddress - usually the same as Minecraft address
 $_mlp_host = "' . $_POST["mlp_host"] . '";
@@ -28,10 +22,6 @@ $_mlp_host = "' . $_POST["mlp_host"] . '";
 $_mlp_port = ' . $_POST["mlp_port"] . ';
 //MineloadPlugin Password Default is changemenow539!
 $_mlp_password = "' . $_POST["mlp_password"] . '";
-
-/*** Mineload System php settings Linux only ***/
-$_mls_interface = "' . $_POST["mls_interface"] . '";
-$_mls_logfile = "' . $_POST["mls_logfile"] . '";
   
 /*** Mineload Web Interface Login credentials & Settings ***/
 $_mlw_username = "' . $_POST["mlw_username"] . '";
@@ -108,29 +98,7 @@ $_jsonapi_salt = "' . $_POST["jsonapi_salt"] . '";
         <ul class="states">
           <li id="mc_status"></li>
         </ul>
-
-        <h2>Database Settings</h2>
-        <p>
-          MySQL is used to log history of your minecraft server to draw pretty graphs of the past.
-          It is not required or implemented yet. 
-        </p>
-        <p>
-          <input name="dbhost" type="text" value="localhost" class="input" id="dbhost" value="localhost"> 
-          DB Host usually localhost.
-        </p>
-        <p>
-          <input name="dbuname" type="text" class="input" id="dbuname"> 
-          DB Username
-        </p>
-        <p>
-          <input name="dbpass" type="password" class="input" id="dbpass">
-          DB Pass 
-        </p>
-        <p>
-          <input name="dbname" type="text" class="input" id="dbname">
-          DB Name 
-        </p>
-
+        
         <h2>MineloadPlugin Settings</h2>
         <p>
           Settings related to the Bukkit plugin. By now you should have installed MineloadPlugin.jar
@@ -157,30 +125,6 @@ $_jsonapi_salt = "' . $_POST["jsonapi_salt"] . '";
           <li id="mlp_status"></li>
         </ul>
 
-        <h2>Linux Specific Settings - To be Deprecated!</h2>
-        <p>
-          This section specifies special linux functions. It uses the old php script. It
-          will only work well for systems that host the website on the minecraft server.
-          <strong>This will be be deprecated soon and will be replaced into the plugin hopefully.</strong>
-        </p>
-        <h3>Network Interface</h3>
-        <p>
-          Your network interface on a dedicated machine is usually 'eth0'. Virtual machines
-          are usually 'venet0'
-        </p>
-        <p>
-          <input name="mls_interface" type="text" class="input" value="eth0" id="mls_interface">
-          Network Interface: (Default: eth0)
-        </p>
-        <p>
-          Full path to log file. If your craftbukkit.jar is operating in /home/mc/, Your path will
-          be /home/mc/server.log
-        </p>
-
-        <p>
-          <input name="mls_logfile" type="text" class="input" value="/home/mc/server.log" id="mls_logfile">
-          Log Path: (Default: /home/mc/server.log)
-        </p>
         <h2>JSONAPI Connection Settings</h2>
         <p>
           You must have the JSONAPI.jar plugin installed. This plugin provides a secure
