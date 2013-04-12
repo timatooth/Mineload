@@ -24,4 +24,6 @@ web server preferably one you own now a free shared host.
 It would be awesome if you checked out the source code, send bugs/issues 
 or pull requests to my GitHub account: http://github.com/timatooth/Mineload
 
+You can find more stuff I have made at my new website http://timatooth.com
+
 *Timatooth*
