@@ -42,10 +42,6 @@ if (isset($_SESSION['user'])) {
     <script type="text/javascript" src="js/jsonapi.js"></script>
     <script type="text/javascript" src="js/alertify.min.js"></script>
 
-    <!-- DataTables CSS 
-    <link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css">
-    <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
-    -->
     <script type="text/javascript" charset="utf8" src="js/playerlist.js"></script>
     <script type="text/javascript" charset="utf8" src="js/worldmanager.js"></script>
     <script type="text/javascript" charset="utf8" src="js/plugintable.js"></script>
@@ -172,17 +168,18 @@ if (isset($_SESSION['user'])) {
                         <article>
                             <div class="text-section">
                                 <h1>Inventory Browser</h1>
-                                <p>Inventory Browser</p>
+                                <p><em>Take care loading large amounts of players</em></p>
                             </div>
-                            <ul class="states">
-                                <li class="warning">The inventory browser isn't finished yet. Test it here *danger* <a href="inventory.html">inventory.html</a></li>
-                            </ul>
-                            <div class="datablock">
+                            <div class="datablock" id="inventory_page">
                                 <select id="inventory_player_list">
                                     <option>Playername:</option>
                                 </select>
-                                <span id="inventory_status">Load Players</span>
-                                <div class="inventory_container">
+
+                                <button id="inventory_page_button">All players</button>
+                                <button id="inventorys_clear">Clear Page</button>
+                                <span id="inventory_status">Status</span>
+                                <br />
+                                <div id="inventorys_div">
                                 </div>
                             </div>
                         </article>
@@ -230,7 +227,7 @@ if (isset($_SESSION['user'])) {
                         <article>
                             <div class="text-section">
                                 <h1>Server Plugins</h1>
-                                <p>View plugin versions. TODO</p>
+                                <p>View plugin versions</p>
                             </div>
                             <div id="plugin_table">
 

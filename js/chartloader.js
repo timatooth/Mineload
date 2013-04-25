@@ -4,7 +4,7 @@
  */
 var DELAY = 4000; //update the charts every DELAY ms.
 google.load('visualization', '1', {
-  packages:['gauge']
+  packages:['gauge', 'table']
 });
 google.setOnLoadCallback(init);
 

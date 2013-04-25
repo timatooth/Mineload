@@ -35,6 +35,10 @@ function startSocket() {
             if (e) {
                 alertify.log("Atemmpting to reconnect...");
                 startSocket();
+            } else {
+                $('#command_field').attr("disabled", "disabled");
+                $('#send_command_button').attr("disabled", "disabled");
+                authed = false;
             }
         });
     };
