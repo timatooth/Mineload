@@ -1,6 +1,12 @@
 // page init
+var json;
 jQuery(function() {
     initTabs();
+    //set up the JSON global variable
+    console.log("Connecting to jsonapi");
+    $.getJSON("jsonapi.php", null, function(options){
+        json = new JSONAPI(options);
+    });
 });
 
 // tabs init

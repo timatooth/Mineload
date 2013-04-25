@@ -71,7 +71,7 @@ $_jsonapi_salt = "' . $_POST["jsonapi_salt"] . '";
   <head>
     <title>Mineload Installation</title>
     <link rel="stylesheet" href="installer.css" media="screen">
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script src="../js/jsonapi.js" type="text/javascript"></script>
     <script src="js/installer.js" type="text/javascript"></script>
   </head>

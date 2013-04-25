@@ -44,3 +44,6 @@ nbproject/
 config/config.php
 #my development site github service hook #
 mineloadhook.php
+
+#emacs
+*~

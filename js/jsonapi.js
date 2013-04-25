@@ -262,6 +262,10 @@ this.createKey = function (method) {
   }
   return SHA256(that.username + method + that.password + that.salt);
 };
+
+this.sha256 = function(input){
+    return SHA256(input);
+};
 	
 /**
 	 * Generates the proper URL for a standard API call the given method and arguments.

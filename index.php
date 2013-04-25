@@ -38,7 +38,7 @@ if (isset($_SESSION['user'])) {
       </form>
     </div>
     <div id="footer">
-      <p>Mineload Web Interface version 0.0.5 Alpha by Tim Sullivan (<a href="http://timatooth.com">Timatooth</a>) on <a href="http://dev.bukkit.org/server-mods/mineload">BukkitDev</a></p>
+      <p>Mineload Web Interface version 0.0.6 Alpha by Tim Sullivan (<a href="http://timatooth.com">Timatooth</a>) on <a href="http://dev.bukkit.org/server-mods/mineload">BukkitDev</a></p>
     </div>
   </body>
 </html>
