@@ -1,37 +1,59 @@
+/**
+ * The inventory manager script.
+ * much needs to be done still to improve the performance on servers
+ * with large amounts of players. Or players with lots of chests.
+ * The UI needs a lot of work to make it more intuiative.
+ * 
+ */
+
+/* Keep track of whether user has clicked the inventory tab
+ * which triggers the player list box to load.
+ */
+var player_inventory_list_loaded = false;
+
+/*
+ * set up callbacks for elements.
+ */
 $(document).ready(function() {
     //when the click the inventory browser tab
     $('.ico3').click(function() {
-        //add the online player names first.
-        json.call("getPlayerNames", null, function(res) {
-            var result = res.success;
-            $('#inventory_player_list').empty();
-            for (var i = 0; i < result.length; i++) {
-                $('#inventory_player_list').append("<option>" + result[i] + "</option");
-            }
-            //need to add offline player names as well with another call
-            json.call("getOfflinePlayerNames", null, function(res2) {
-                var result2 = res2.success;
-                for (var i = 0; i < result2.length; i++) {
-                    $('#inventory_player_list').append("<option>" + result2[i] + "</option");
+        if (!player_inventory_list_loaded) {
+            $('#inventory_status').text("Loading player list...");
+            //online players first
+            json.call("getPlayerNames", null, function(res) {
+                var result = res.success;
+                $('#inventory_player_list').empty();
+                for (var i = 0; i < result.length; i++) {
+                    $('#inventory_player_list').append("<option>" + result[i] + "</option");
                 }
-                //try call the "selection box changed event" to load the inventory.
-                $('#inventory_player_list').change();
+                //need to add offline player names as well with another jsonapi call
+                json.call("getOfflinePlayerNames", null, function(res2) {
+                    var result2 = res2.success;
+                    for (var i = 0; i < result2.length; i++) {
+                        $('#inventory_player_list').append("<option>" + result2[i] + "</option");
+                    }
+                    $('#inventory_status').text("Done player list.");
+                    player_inventory_list_loaded = true;
+                    //try call the "selection box changed event" to load the inventory.
+                    $('#inventory_player_list').change();
+                });
             });
-        });
-
+        }
     });
 
-    //switched player in the option list
+    /*
+     * User switched player in the option list. Load a new inventory
+     * container and attach it to the #inventorys_div
+     */
     $('#inventory_player_list').change(function() {
         var choice = $('#inventory_player_list option:selected').text();
+        $('#inventory_status').text("Getting player data for " + choice + "...");
         json.call("getPlayer", [choice], function(res) {
-            var ic = $('#inventorys_div').append("<div>");
-            ic.attr("class", "inventory_container");
-            //var ic = $('.inventory_container');
-            ic.empty();
+            var newInventoryContainer = document.createElement("div");
+            $('#inventorys_div').append(newInventoryContainer);
+            $(newInventoryContainer).attr("class", "inventory_container");
             var data = res.success;
             var inventory = data.inventory.inventory;
-            console.log(inventory);
             for (var i = 0; i < 36; i++) {
                 if (inventory[i] !== null) {
                     //the slot contains an item. create a div and place it.
@@ -44,9 +66,10 @@ $(document).ready(function() {
                     item.html("<p>" + inventory[i].amount + "</p>");
                     item.css("top", getY(i));
                     item.css("left", getX(i));
-                    ic.append(item);
+                    $(newInventoryContainer).append(item);
                 }
             }
+            $('#inventory_status').text("Done loading " + choice + "'s inventory.");
             //add meta container
             var metaElement = document.createElement("div");
             var meta = $(metaElement);
@@ -54,77 +77,29 @@ $(document).ready(function() {
             meta.attr("class", "inventory_container_meta");
             meta.attr("id", "inventory_container_meta-" + $(this).text());
             //add Chest for player link
-            meta.append("<p><a href=\"#\">Chest Lookup</a></p>");
-            meta.attr("playername", data.name);
-            $(meta).click(function() {
+            var chestbutton = document.createElement("button");
+            $(chestbutton).text("Chest Lookup");
+            $(meta).append(chestbutton);
+            $(chestbutton).attr("playername", data.name);
+            $(chestbutton).click(function() {
                 var playername = $(this).attr("playername");
-                //alert(playername);
                 getChestContents(playername);
             });
 
-            $(ic).append(meta);
+            $(newInventoryContainer).append(meta);
         });
     });
-
-
-    //TODO this function is a BIG ask on the client and server for > 100 players.
-    //might implement a *update the page as you scroll* like facebooks news feed.
-    $('#inventory_page_button').click(function() {
-        var players = $('#inventory_player_list');
-        //for each item in the player list
-        players.find("option").each(function() {
-            $('#inventory_status').text("Loading " + $(this).text());
-            json.call("getPlayer", [$(this).text()], function(res) {
-                var data = res.success;
-                var inven = data.inventory.inventory;
-                var newContainerElement = document.createElement("div");
-                var newContainer = $(newContainerElement);
-                $(newContainer).attr("class", "inventory_container");
-                $(newContainer).attr("id", $(this).text());
-                //add meta container
-                var metaElement = document.createElement("div");
-                var meta = $(metaElement);
-                meta.html("<p>" + data.name + "</p>");
-                meta.attr("class", "inventory_container_meta");
-                meta.attr("id", "inventory_container_meta-" + $(this).text());
-                //add Chest for player link
-                meta.append("<p><a class=\"chest_button\" href=\"#\">Chest Lookup</a></p>");
-                meta.attr("playername", data.name);
-                $(meta).click(function() {
-                    var playername = $(this).attr("playername");
-                    //alert(playername);
-                    getChestContents(playername);
-                });
-
-                newContainer.append(meta);
-                $('#inventorys_div').append(newContainer);
-
-                for (var i = 0; i < 36; i++) {
-                    if (inven[i] !== null) {
-                        var itemElement = document.createElement("div");
-                        var item = $(itemElement);
-                        item.attr("class", "item");
-                        item.attr("class", item.attr("class") + " sprites");
-                        item.attr("class", item.attr("class") + " items-3-" + inven[i].type + "-0");
-                        item.attr("id", "item-" + $(this).text() + "-" + i);
-                        item.html("<p>" + inven[i].amount + "</p>");
-                        item.css("top", getY(i));
-                        item.css("left", getX(i));
-                        newContainer.append(item);
-                    }
-                }
-                $('#inventory_status').text("Done loading inventory");
-            }); //end of "got the players inventory" callback
-
-
-        }); //end of each player iteration
-
-
-    }); //end of "they clicked the whole page" callback
-
-    var getChestContents = function(choice) {
-        json.call("mineload.getPlayerLWCChests", [choice], function(res) {
-            //now spit up the nasty comman delimited code response
+    
+    /**
+     * Get the chests for a player and render them.
+     * Chest containers get attached to the #inventorys_div
+     * @param {String} playername to lookup
+     * @returns void
+     */
+    var getChestContents = function(playername) {
+        json.call("mineload.getPlayerLWCChests", [playername], function(res) {
+            //now spit up the nasty comma delimited code response
+            //should be a json object.
             var response = res.success;
             for (var c = 0; c < response.length; c++) {
                 var delimited = response[c].split(",");
@@ -132,15 +107,25 @@ $(document).ready(function() {
                 var x = delimited[1];
                 var y = delimited[2];
                 var z = delimited[3];
+                console.log("Looking up "+ world + " " + x +" "+y+" "+z);
 
                 //now we have enough info to get the exact chest contents.
                 json.call("world.getChestContents", [world, x, y, z], function(res) {
+                    console.log(playername +"'s Chest at: ("+world+" - "+x+", "+y+", "+z+")");
                     //now have the chest contnts
                     var chest = res.success;
+                    console.log(res);
                     var newContainerElement = document.createElement("div");
                     var newContainer = $(newContainerElement);
                     $(newContainer).attr("class", "chest_container");
                     $(newContainer).attr("id", "chest-" + world + "-" + x + "-" + y + "-" + z);
+                    
+                    //add chest meta data, owner, xyz etc
+                    var chestMeta = document.createElement("div");
+                    $(chestMeta).attr("class", "chest_container_meta");
+                    $(newContainer).append(chestMeta);
+                    $(chestMeta).text(playername +"'s Chest at: ("+world+" - "+x+", "+y+", "+z+")");
+                    
 
                     for (var i = 0; i < chest.length; i++) {
                         if (chest[i] !== null) {
@@ -166,7 +151,7 @@ $(document).ready(function() {
 
         }); //end of get chests for [player] callback
     };
-    
+
     //free up the dom where all the inventories are placed.
     $('#inventorys_clear').click(function() {
         $('#inventorys_div').empty();
@@ -203,7 +188,7 @@ function getY(slot) {
 function getX(slot) {
     var initialBorder = 12;
     var inlineBorder = 4;
-    if (slot % 9 == 0) {
+    if (slot % 9 === 0) {
         return initialBorder;
     }
     else {
@@ -242,7 +227,7 @@ function getChestY(slot) {
 function getChestX(slot) {
     var initialBorder = 12;
     var inlineBorder = 4;
-    if (slot % 9 == 0) {
+    if (slot % 9 === 0) {
         return initialBorder;
     }
     else {

@@ -175,12 +175,13 @@ if (isset($_SESSION['user'])) {
                                     <option>Playername:</option>
                                 </select>
 
-                                <button id="inventory_page_button">All players</button>
                                 <button id="inventorys_clear">Clear Page</button>
                                 <span id="inventory_status">Status</span>
                                 <br />
+                                
                                 <div id="inventorys_div">
                                 </div>
+                                
                             </div>
                         </article>
                     </div>

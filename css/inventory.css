@@ -54,6 +54,17 @@
   float: left;
 }
 
+.chest_container_meta{
+    width: 325px;
+    height: 27px;
+    background-color: #555;
+    position: absolute;
+    top: 5px;
+    left: 13px;
+    color: #eee;
+    padding-top: 3px;
+}
+
 
 .sprites.items-3-0-0 {
   background: url('../images/items.png') no-repeat 0 0;
