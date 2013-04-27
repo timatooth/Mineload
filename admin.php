@@ -42,8 +42,8 @@ if (isset($_SESSION['user'])) {
     <script type="text/javascript" src="js/jsonapi.js"></script>
     <script type="text/javascript" src="js/alertify.min.js"></script>
 
-    <script type="text/javascript" charset="utf8" src="js/playerlist.js"></script>
-    <script type="text/javascript" charset="utf8" src="js/worldmanager.js"></script>
+    <script type="text/javascript" charset="utf8" src="js/playertable.js"></script>
+    <script type="text/javascript" charset="utf8" src="js/worldtable.js"></script>
     <script type="text/javascript" charset="utf8" src="js/plugintable.js"></script>
     <script type="text/javascript" charset="utf8" src="js/updatefeed.js"></script>
     <script type="text/javascript" charset="utf8" src="js/alert.js"></script>
@@ -151,16 +151,11 @@ if (isset($_SESSION['user'])) {
                     <div id="tab-2" class="tab">
                         <article>
                             <div class="text-section">
-                                <h1>World settings</h1>
-                                <p>Change world settings like time/day</p>
+                                <h1>World Info</h1>
+                                <p>View world information</p>
                             </div>
-                            <ul class="states">
-                                <li class="warning">The world management section is not done yet.</li>
-                            </ul>
                             <div class="datablock">
-                                <div id="world_table">
-
-                                </div>
+                                <div id="world_table">Loading...</div>
                             </div>
                         </article>
                     </div>
@@ -178,23 +173,21 @@ if (isset($_SESSION['user'])) {
                                 <button id="inventorys_clear">Clear Page</button>
                                 <span id="inventory_status">Status</span>
                                 <br />
-                                
+
                                 <div id="inventorys_div">
                                 </div>
-                                
+
                             </div>
                         </article>
                     </div>
                     <div id="tab-4" class="tab">
                         <article>
                             <div class="text-section">
-                                <h1>Server Security</h1>
-                                <p>Edit banlist, ip addresses and manage whitelists</p>
+                                <h1>Online Players</h1>
+                                <p>View status of players logged in.</p>
                             </div>
                             <div class="datablock">
-                                <div id="player_table">
-
-                                </div>
+                                <div id="player_table"></div>
                             </div>
                         </article>
                     </div>
@@ -230,8 +223,8 @@ if (isset($_SESSION['user'])) {
                                 <h1>Server Plugins</h1>
                                 <p>View plugin versions</p>
                             </div>
-                            <div id="plugin_table">
-
+                            <div class="datablock">
+                                <div id="plugin_table"></div>
                             </div>
                         </article>
                     </div>
@@ -257,8 +250,8 @@ if (isset($_SESSION['user'])) {
                     <span class="tooltip"><span>Dashboard</span></span>
                 </li>
                 <li>
-                    <a href="#tab-2" class="ico2"><span>World Manager</span><em></em></a>
-                    <span class="tooltip"><span>World Manager</span></span>
+                    <a href="#tab-2" class="ico2"><span>World Info</span><em></em></a>
+                    <span class="tooltip"><span>World Info</span></span>
                 </li>
                 <li>
                     <a href="#tab-3" class="ico3"><span>Inventory Browser</span><em></em></a>
@@ -266,7 +259,7 @@ if (isset($_SESSION['user'])) {
                 </li>
                 <li>
                     <a href="#tab-4" class="ico4"><span>Player Manager</span><em></em></a>
-                    <span class="tooltip"><span>Player Manager</span></span>
+                    <span class="tooltip"><span>Player Manager (click to refresh)</span></span>
                 </li>
                 <li>
                     <a href="#tab-5" class="ico5"><span>Scheduler</span><em></em></a>

@@ -12,11 +12,6 @@ $(document).ready(function() {
             data.addColumn('string', 'Description');
             data.addColumn('string', 'Authors');
             data.addColumn('string', "Website");
-
-            //data.addRows([
-                //['Mike', {v: 10000, f: '$10,000'}, true],
-             //   ['MineloadPlugin', true, '0.0.5', 'Timatooth', 'timatooth.com']
-            //]);
             
             for(var i = 0; i < response.length; i++){
                 var plug = response[i];
