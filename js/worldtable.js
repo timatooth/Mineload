@@ -22,6 +22,15 @@ $(document).ready(function() {
             var table = new google.visualization.Table(document.getElementById('world_table'));
             table.draw(data, {showRowNumber: false});
         });
+        
+        json.call("system.getDiskUsage", null, function(res1){
+            json.call("system.getDiskSize", null, function(res2){
+                var used = Math.round(res1.success / 1024, 2);
+                var size = Math.round(res2.success / 1024, 2);
+                var percent = Math.round(used/size, 2) * 100;
+                $('#disk_data').html("Disk Used: "+used+"GB / "+size+"GB (" +percent+"% Used)");
+            });
+        });
 
     });
 });

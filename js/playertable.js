@@ -4,7 +4,6 @@ $(document).ready(function() {
         json.call("getPlayers", null, function(res) {
             //json response callback
             var response = res.success;
-            console.log(response);
             var data = new google.visualization.DataTable();
             data.addColumn('string', 'Name');
             data.addColumn('number', 'Health');
@@ -19,11 +18,13 @@ $(document).ready(function() {
                 var player = response[i];
                 var world = player.worldInfo.name;
                 var loc = player.location;
+                var ip = player.ip.replace(/\//, "").split(":")[0];
+                
                 data.addRows([
                     [player.name,
                         player.health,
                         player.foodLevel,
-                        player.ip,
+                        ip,
                         player.level,
                         player.op,
                         player.whitelisted,

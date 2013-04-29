@@ -158,6 +158,13 @@ if (isset($_SESSION['user'])) {
                             <div class="datablock">
                                 <div id="world_table">Loading...</div>
                             </div>
+                            <div class="text-section" style="clear: left">
+                                <h1>Disk Space Usage</h1>
+                                <p>Server file system info</p>
+                            </div>
+                            <div class="datablock">
+                                <p id="disk_data">Disk Used: <p>
+                            </div>
                         </article>
                     </div>
                     <div id="tab-3" class="tab">
@@ -199,7 +206,7 @@ if (isset($_SESSION['user'])) {
                                 <p>Schedule commands to be executed</p>
                             </div>
                             <ul class="states">
-                                <li class="warning">This might be a tricky one!</li>
+                                <li class="warning">I probably will do something else in this section.</li>
                             </ul>
                         </article>
                     </div>

@@ -4,7 +4,8 @@ body{
 #loginfieldset {
   width: 430px;
   margin: auto;
-  background-color: #5C6573;
+  background: url('../images/bg-controls.png') #5C6573 repeat;
+  box-shadow: #005599 0px 0px 40px;
   padding: 10px;
   color: #111;
   font-size: 1.2em;
