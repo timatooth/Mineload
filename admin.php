@@ -48,6 +48,7 @@ if (isset($_SESSION['user'])) {
     <script type="text/javascript" charset="utf8" src="js/updatefeed.js"></script>
     <script type="text/javascript" charset="utf8" src="js/alert.js"></script>
     <script type="text/javascript" charset="utf8" src="js/inventory.js"></script>
+    <script type="text/javascript" charset="utf8" src="js/settingstable.js"></script>
 
     <div id="wrapper">
         <div id="content">
@@ -234,9 +235,105 @@ if (isset($_SESSION['user'])) {
                                 <h1>Mineload Configuration Settings</h1>
                                 <p>This is a quick overview of some features</p>
                             </div>
-                            <ul class="states">
-                                <li class="warning">TODO: You will be able to edit the config.php settings here.</li>
-                            </ul>
+                            <div class="datablock">
+                                <p>
+                                    These settings are saved in config/config.php which needs
+                                    to be <strong>writable</strong> on the server. You will be
+                                    logged out when settings are applied and will need to re-login.
+                                </p>
+                                <table>
+                                    <tr>
+                                        <td><strong>Minecraft Server</strong></td>
+                                        <td></td><td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Minecraft Hostname:</td>
+                                        <td><input id="mc_host" type="text" /></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Minecraft Port:</td>
+                                        <td><input id="mc_port" type="text" /></td>
+                                        <td>Default: 25565</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>MineloadPlugin Settings</strong></td>
+                                        <td></td><td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            MineloadPlugin Hostname:
+                                        </td>
+                                        <td>
+                                            <input id="mlp_host" type="text" />
+                                        </td>
+                                        <td>Usually same as your MC IP</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            MineloadPlugin Port:
+                                        </td>
+                                        <td>
+                                            <input id="mlp_port" type="text" />
+                                        </td>
+                                        <td>Default: 25500</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>MineloadPlugin Password:</td>
+                                        <td>
+                                            <input id="mlp_password" type="password" />
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>JSONAPI Settings</strong></td>
+                                        <td></td><td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>JSONAPI Hostname:</td>
+                                        <td><input id="jsonapi_host" type="text" /></td>
+                                        <td>Usually the same as your MC IP</td>
+                                    </tr>
+                                    <tr>
+                                        <td>JSONAPI Port:</td>
+                                        <td><input id="jsonapi_port" type="text" /></td>
+                                        <td>Default: 20059</td>
+                                    </tr>
+                                    <tr>
+                                        <td>JSONAPI Username:</td>
+                                        <td><input id="jsonapi_username" type="text" /></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>JSONAPI Password:</td>
+                                        <td><input id="jsonapi_password" type="password" /></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>JSONAPI Salt:</td>
+                                        <td><input id="jsonapi_salt" type="password" /></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Mineload Web Interface Settings</strong></td>
+                                        <td></td><td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Username:</td>
+                                        <td><input id="mlw_username" type="text" /></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Password:</td>
+                                        <td><input id="mlw_password" type="password" /></td>
+                                        <td></td>
+                                    </tr>
+                                </table>
+                                <br />
+                                <button id="save_settings">Save</button>
+                                <span id="settings_status"></span>
+                            </div>
                         </article>
                     </div>
                 </div>

@@ -1,19 +1,24 @@
 .datablock{
-  margin-left: 40px;
-  color: #000;
-  float: left;
+    margin-left: 40px;
+    color: #000;
+    float: left;
 }
 
 .chart{
-  float: left;
+    float: left;
 }
 
 #feedcontent h4{
-  color: #005599;
-  font-weight: 100;
+    color: #005599;
+    font-weight: 100;
 }
 
 #feedcontent{
-  margin-right: 40px;
-  color: #222;
+    margin-right: 40px;
+    color: #222;
+}
+
+#settings_status {
+    color: #F00;
+    font-weight: bold;
 }
