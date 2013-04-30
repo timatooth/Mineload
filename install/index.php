@@ -77,7 +77,7 @@ $_jsonapi_salt = "' . $_POST["jsonapi_salt"] . '";
   </head>
   <body>
     <div id="content">
-
+        <img src="../images/mineload-logo-silver.png" alt="Mineload Logo" />
       <h1>Mineload Installation</h1>
       <p>
         Thank you for being interested in Mineload! This 'installer' will setup your Mineload
@@ -150,6 +150,10 @@ $_jsonapi_salt = "' . $_POST["jsonapi_salt"] . '";
         <p>
           <input name="jsonapi_salt" type="text" class="input" id="jsonapi_salt">
           JSONAPI salt
+        </p>
+        <p>
+            ProTip<sup>TM</sup>: set JSONAPI config setting: log-to-console to false
+            to remove JSONAPI call logs in the server console.
         </p>
         <ul class="states">
           <li id="jsonapi_status"></li>

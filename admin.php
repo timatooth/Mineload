@@ -197,6 +197,20 @@ if (isset($_SESSION['user'])) {
                             <div class="datablock">
                                 <div id="player_table"></div>
                             </div>
+                            <div style="clear: left" class="text-section">
+                                <h1>Player Operations</h1>
+                                <p>Select a player or CTRL + Select. To perform actions.</p>
+                            </div>
+                            <div class="datablock" id="player_operations">
+                                <ul id="selected_players"></ul>
+                                <button class="player_operation_button">Kick</button>
+                                <button class="player_operation_button">Ban</button>
+                                <!-- TODO. Possible broken jsonapi method in banIP
+                                <button class="player_operation_button">IP Ban</button>
+                                <button class="player_operation_button">Toggle OP</button>
+                                <button class="player_operation_button">Toggle Whitelist</button>
+                                -->
+                            </div>
                         </article>
                     </div>
                     <div id="tab-5" class="tab">
