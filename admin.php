@@ -49,6 +49,7 @@ if (isset($_SESSION['user'])) {
     <script type="text/javascript" charset="utf8" src="js/alert.js"></script>
     <script type="text/javascript" charset="utf8" src="js/inventory.js"></script>
     <script type="text/javascript" charset="utf8" src="js/settingstable.js"></script>
+    <script type="text/javascript" charset="utf8" src="js/dashboard.js"></script>
 
     <div id="wrapper">
         <div id="content">
@@ -111,6 +112,7 @@ if (isset($_SESSION['user'])) {
                                     <tr><td>Bukkit Version:</td><td id="plugin_bukkitversion"></td></tr>
                                     <tr><td>JVM Memory Used:</td><td id="plugin_jvmused"></td></tr>
                                     <tr><td>JVM Memory Allocated:</td><td id="plugin_jvmmax"></td></tr>
+                                    <tr><td><button id="perform_GC" title="Attempt to free memory by manually calling the JVM garbage collector">Run Garbage Collector</button></td><td></td></tr>
                                 </table>
                             </div>
                             <div class="datablock">
@@ -216,12 +218,23 @@ if (isset($_SESSION['user'])) {
                     <div id="tab-5" class="tab">
                         <article>
                             <div class="text-section">
-                                <h1>Server Scheduler</h1>
-                                <p>Schedule commands to be executed</p>
+                                <h1>Permissions</h1>
+                                <p>View and change user and group permissions</p>
                             </div>
-                            <ul class="states">
-                                <li class="warning">I probably will do something else in this section.</li>
-                            </ul>
+                            <div class="datablock">
+                                <div class="permbox" id="group-permissions">
+                                    <h3>Groups</h3>
+                                    <select id="group-permissions-select" multiple="multiple"></select>
+                                </div>
+                                <div class="permbox" id="permissions-nodes">
+                                    <h3>Nodes</h3>
+                                    <select id="permissions-nodes-select" multiple="multiple"></select>
+                                </div>
+                                <div class="permbox" id="user-permissions">
+                                    <h3>Users</h3>
+                                    <select id="user-permissions-select" multiple="multiple"></select>
+                                </div>
+                            </div>
                         </article>
                     </div>
                     <div id="tab-6" class="tab">
@@ -380,8 +393,8 @@ if (isset($_SESSION['user'])) {
                     <span class="tooltip"><span>Player Manager (click to refresh)</span></span>
                 </li>
                 <li>
-                    <a href="#tab-5" class="ico5"><span>Scheduler</span><em></em></a>
-                    <span class="tooltip"><span>Schedule tasks</span></span>
+                    <a href="#tab-5" class="ico5"><span>Permissions</span><em></em></a>
+                    <span class="tooltip"><span>View/Edit permissions</span></span>
                 </li>
                 <li>
                     <a href="#tab-6" class="ico6">

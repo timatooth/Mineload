@@ -22,3 +22,14 @@
     color: #F00;
     font-weight: bold;
 }
+
+/**
+* Permissions section
+*/
+
+.permbox {
+    float: left;
+    min-width: 200px;
+    min-height: 80px;
+    margin-right: 5px;
+}

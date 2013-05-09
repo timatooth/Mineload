@@ -97,6 +97,7 @@ $(document).ready(function() {
      * @returns void
      */
     var getChestContents = function(playername) {
+        var queue = [];
         json.call("mineload.getPlayerLWCChests", [playername], function(res) {
             //now spit up the nasty comma delimited code response
             //should be a json object.
@@ -108,23 +109,38 @@ $(document).ready(function() {
                 var y = delimited[2];
                 var z = delimited[3];
                 console.log("Looking up "+ world + " " + x +" "+y+" "+z);
-
+                
+                queue.push({world:world,x:x,y:y,z:z});
+                //console.log(queue);
                 //now we have enough info to get the exact chest contents.
                 json.call("world.getChestContents", [world, x, y, z], function(res) {
-                    console.log(playername +"'s Chest at: ("+world+" - "+x+", "+y+", "+z+")");
+                    //console.log(playername +"'s Chest at: ("+world+" - "+x+", "+y+", "+z+")");
                     //now have the chest contnts
                     var chest = res.success;
-                    console.log(res);
+                    //console.log(res);
+                    //get the chest from the queue.
+                    var co = queue.shift();
+                    console.log(co);
+                    //console.log(queue.length);
+                    //the chest will be null if it doesn't exist in the world.
+                    if(chest === null){
+                        console.log("Contents of "+ co.world+": "+co.x+", "+co.y+", "+co.z+ " are null. returning");
+                        return;
+                    } else {
+                        console.log("Contents of "+ co.world+": "+co.x+", "+co.y+", "+co.z+ " NOT NULL");
+                    }
+                    
+                    
                     var newContainerElement = document.createElement("div");
                     var newContainer = $(newContainerElement);
                     $(newContainer).attr("class", "chest_container");
-                    $(newContainer).attr("id", "chest-" + world + "-" + x + "-" + y + "-" + z);
+                    $(newContainer).attr("id", "chest-" + co.world + "-" + co.x + "-" + co.y + "-" + co.z);
                     
                     //add chest meta data, owner, xyz etc
                     var chestMeta = document.createElement("div");
                     $(chestMeta).attr("class", "chest_container_meta");
                     $(newContainer).append(chestMeta);
-                    $(chestMeta).text(playername +"'s Chest at: ("+world+" - "+x+", "+y+", "+z+")");
+                    $(chestMeta).text(playername +"'s Chest at: ("+co.world+": "+co.x+", "+co.y+", "+co.z+")");
                     
 
                     for (var i = 0; i < chest.length; i++) {
