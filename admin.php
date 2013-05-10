@@ -50,6 +50,7 @@ if (isset($_SESSION['user'])) {
     <script type="text/javascript" charset="utf8" src="js/inventory.js"></script>
     <script type="text/javascript" charset="utf8" src="js/settingstable.js"></script>
     <script type="text/javascript" charset="utf8" src="js/dashboard.js"></script>
+    <script type="text/javascript" charset="utf8" src="js/permissionstable.js"></script>
 
     <div id="wrapper">
         <div id="content">
@@ -219,20 +220,26 @@ if (isset($_SESSION['user'])) {
                         <article>
                             <div class="text-section">
                                 <h1>Permissions</h1>
-                                <p>View and change user and group permissions</p>
+                                <p>
+                                    View and change user and group permissions. Currently
+                                    you can only edit nodes on a per-user basis. Users must be
+                                    <strong>online.</strong>
+                                    Groups must be edited
+                                    manually e.g. the Mineload Plugin Configuration Editor. 
+                                </p>
                             </div>
                             <div class="datablock">
+                                <div class="permbox" id="user-permissions">
+                                    <h3>User...</h3>
+                                    <select id="user-permissions-select" multiple="multiple"></select>
+                                </div>
                                 <div class="permbox" id="group-permissions">
-                                    <h3>Groups</h3>
+                                    <h3>Is member of...</h3>
                                     <select id="group-permissions-select" multiple="multiple"></select>
                                 </div>
                                 <div class="permbox" id="permissions-nodes">
-                                    <h3>Nodes</h3>
+                                    <h3>And has nodes...</h3>
                                     <select id="permissions-nodes-select" multiple="multiple"></select>
-                                </div>
-                                <div class="permbox" id="user-permissions">
-                                    <h3>Users</h3>
-                                    <select id="user-permissions-select" multiple="multiple"></select>
                                 </div>
                             </div>
                         </article>
