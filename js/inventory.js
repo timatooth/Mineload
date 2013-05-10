@@ -53,6 +53,7 @@ $(document).ready(function() {
             $('#inventorys_div').append(newInventoryContainer);
             $(newInventoryContainer).attr("class", "inventory_container");
             var data = res.success;
+            /* Inventory contents */
             var inventory = data.inventory.inventory;
             for (var i = 0; i < 36; i++) {
                 if (inventory[i] !== null) {
@@ -69,6 +70,14 @@ $(document).ready(function() {
                     $(newInventoryContainer).append(item);
                 }
             }
+
+            /*Armor contents */
+            var armor = data.inventory.armor;
+            addArmorItem(armor.helmet, newInventoryContainer, "helmet");
+            addArmorItem(armor.chestplate, newInventoryContainer, "chestplate");
+            addArmorItem(armor.leggings, newInventoryContainer, "leggings");
+            addArmorItem(armor.boots, newInventoryContainer, "boots");
+
             $('#inventory_status').text("Done loading " + choice + "'s inventory.");
             //add meta container
             var metaElement = document.createElement("div");
@@ -85,11 +94,18 @@ $(document).ready(function() {
                 var playername = $(this).attr("playername");
                 getChestContents(playername);
             });
-
+            
+            var avatarElement = document.createElement("div");
+            var avatar = $(avatarElement);
+            $(avatar).attr("class", "minecraft_avatar");
+            //credit to https://github.com/ion1/minecraft-avatars
+            $(avatar).minecraftAvatar({player: data.name});
+            
+            $(newInventoryContainer).append(avatar);
             $(newInventoryContainer).append(meta);
         });
     });
-    
+
     /**
      * Get the chests for a player and render them.
      * Chest containers get attached to the #inventorys_div
@@ -108,9 +124,9 @@ $(document).ready(function() {
                 var x = delimited[1];
                 var y = delimited[2];
                 var z = delimited[3];
-                console.log("Looking up "+ world + " " + x +" "+y+" "+z);
-                
-                queue.push({world:world,x:x,y:y,z:z});
+                console.log("Looking up " + world + " " + x + " " + y + " " + z);
+
+                queue.push({world: world, x: x, y: y, z: z});
                 //console.log(queue);
                 //now we have enough info to get the exact chest contents.
                 json.call("world.getChestContents", [world, x, y, z], function(res) {
@@ -123,25 +139,25 @@ $(document).ready(function() {
                     console.log(co);
                     //console.log(queue.length);
                     //the chest will be null if it doesn't exist in the world.
-                    if(chest === null){
-                        console.log("Contents of "+ co.world+": "+co.x+", "+co.y+", "+co.z+ " are null. returning");
+                    if (chest === null) {
+                        console.log("Contents of " + co.world + ": " + co.x + ", " + co.y + ", " + co.z + " are null. returning");
                         return;
                     } else {
-                        console.log("Contents of "+ co.world+": "+co.x+", "+co.y+", "+co.z+ " NOT NULL");
+                        console.log("Contents of " + co.world + ": " + co.x + ", " + co.y + ", " + co.z + " NOT NULL");
                     }
-                    
-                    
+
+
                     var newContainerElement = document.createElement("div");
                     var newContainer = $(newContainerElement);
                     $(newContainer).attr("class", "chest_container");
                     $(newContainer).attr("id", "chest-" + co.world + "-" + co.x + "-" + co.y + "-" + co.z);
-                    
+
                     //add chest meta data, owner, xyz etc
                     var chestMeta = document.createElement("div");
                     $(chestMeta).attr("class", "chest_container_meta");
                     $(newContainer).append(chestMeta);
-                    $(chestMeta).text(playername +"'s Chest at: ("+co.world+": "+co.x+", "+co.y+", "+co.z+")");
-                    
+                    $(chestMeta).text(playername + "'s Chest at: (" + co.world + ": " + co.x + ", " + co.y + ", " + co.z + ")");
+
 
                     for (var i = 0; i < chest.length; i++) {
                         if (chest[i] !== null) {
@@ -253,6 +269,25 @@ function getChestX(slot) {
 
 function random(max, min) {
     return Math.round(Math.random() * (max - min) + min);
+}
+
+function addArmorItem(id, container, loc) {
+    /*locations for positioning items */
+    var armorLocs = {
+        left: 12,
+        helmet: 14,
+        chestplate: 47,
+        leggings: 83,
+        boots: 118
+    };
+    var itemElement = document.createElement("div");
+    var item = $(itemElement);
+    item.attr("class", "item");
+    item.attr("class", item.attr("class") + " sprites");
+    item.attr("class", item.attr("class") + " items-3-" + id.type + "-0");
+    item.css("top", armorLocs[loc]);
+    item.css("left", armorLocs.left);
+    $(container).append(item);
 }
 
 

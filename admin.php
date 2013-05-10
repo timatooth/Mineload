@@ -51,6 +51,7 @@ if (isset($_SESSION['user'])) {
     <script type="text/javascript" charset="utf8" src="js/settingstable.js"></script>
     <script type="text/javascript" charset="utf8" src="js/dashboard.js"></script>
     <script type="text/javascript" charset="utf8" src="js/permissionstable.js"></script>
+    <script type="text/javascript" charset="utf8" src="js/minecraft-avatar.js"></script>
 
     <div id="wrapper">
         <div id="content">
