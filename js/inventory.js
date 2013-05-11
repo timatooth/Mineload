@@ -73,10 +73,10 @@ $(document).ready(function() {
 
             /*Armor contents */
             var armor = data.inventory.armor;
-            addArmorItem(armor.helmet, newInventoryContainer, "helmet");
-            addArmorItem(armor.chestplate, newInventoryContainer, "chestplate");
-            addArmorItem(armor.leggings, newInventoryContainer, "leggings");
-            addArmorItem(armor.boots, newInventoryContainer, "boots");
+            (armor.helmet !== null) ? addArmorItem(armor.helmet, newInventoryContainer, "helmet"): 0;
+            (armor.chestplate !== null) ? addArmorItem(armor.chestplate, newInventoryContainer, "chestplate"): 0;
+            (armor.leggings !== null) ? addArmorItem(armor.leggings, newInventoryContainer, "leggings"): 0;
+            (armor.boots !== null) ? addArmorItem(armor.boots, newInventoryContainer, "boots"): 0;
 
             $('#inventory_status').text("Done loading " + choice + "'s inventory.");
             //add meta container
