@@ -45,7 +45,7 @@ $_jsonapi_salt = "' . $_POST["jsonapi_salt"] . '";
   <head>
     <title>Mineload Installation</title>
     <link rel="stylesheet" href="installer.css" media="screen">
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js" type="text/javascript"></script>
     <script src="js/installer.js" type="text/javascript"></script>
   </head>
   <body>
@@ -84,7 +84,11 @@ $_jsonapi_salt = "' . $_POST["jsonapi_salt"] . '";
         web interface.
       </p>
       <form action="" method="post" name="install" id="install">
-        <h2>Global Settings</h2>
+        <h2>Minecraft Server IP [not essential]</h2>
+        <p>
+            The actual Minecraft server address does not get contacted anymore. It might be
+            used in future versions however.
+        </p>
         <p>
           <input name="mc_host" type="text" class="input" id="mc_host">
           Minecraft server IP
@@ -108,12 +112,12 @@ $_jsonapi_salt = "' . $_POST["jsonapi_salt"] . '";
 
         <p>
           <input name="mlp_host" type="text" class="input" id="mlp_host">
-          MineloadPlugin Host IP eg. mc.forgottendynasties.net
+          MineloadPlugin Host IP eg. mc.timatooth.com
         </p>
 
         <p>
           <input name="mlp_port" type="text" class="input" value="25500" id="mlp_port">
-          MineloadPlugin Port: 25500 default is fine.
+          MineloadPlugin Port: Default 25500
         </p>
 
         <p>
@@ -160,8 +164,7 @@ $_jsonapi_salt = "' . $_POST["jsonapi_salt"] . '";
         </ul>
         <h2>Mineload Web Interface Settings</h2>
         <p>
-          Be sure to remember your super administrator login details. Keeping the check
-          for updates option set is highly recommended to keep you informed of critical updates.
+            Login credentials for the web interface.
         </p>
         <p>
           <input name="mlw_username" type="text" class="input" value="admin" id="mlw_username">
@@ -173,7 +176,7 @@ $_jsonapi_salt = "' . $_POST["jsonapi_salt"] . '";
         </p>
         <p>
           <input name="mlw_updates" type="checkbox" checked="checked" id="mlw_updates">
-          Check for updates (Highly Recommended for security fixes and general awesomeness)
+          Show update feed
         <p>
           <input type="submit" name="Submit" value="Install">
         </p>

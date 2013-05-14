@@ -13,7 +13,7 @@
         more horrible people i.e (free shared hosting 'companies').  You will get the best results if you
         run your own HTTP server that doesn't have any functions disabled.
       </p>
-      <p>
+      <p style="color: #B00">
         Remember to delete the <strong>install</strong> folder for security purposes!
       </p>
       <p>

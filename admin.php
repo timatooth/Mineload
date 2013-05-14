@@ -24,6 +24,7 @@ if (isset($_SESSION['user'])) {
     <link rel="stylesheet" media="all" href="css/console.css" />
     <link rel="stylesheet" href="css/alertify.core.css" />
     <link rel="stylesheet" href="css/alertify.default.css" />
+    <link rel="icon" type="image/png" href="images/mineload-logo.png">
 </head>
 
 <body>
