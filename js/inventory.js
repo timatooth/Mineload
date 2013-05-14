@@ -62,7 +62,7 @@ $(document).ready(function() {
                     var item = $(itemElement);
                     item.attr("class", "item");
                     item.attr("class", item.attr("class") + " sprites");
-                    item.attr("class", item.attr("class") + " items-3-" + inventory[i].type + "-0");
+                    item.attr("class", item.attr("class") + " items-4-" + inventory[i].type + "-0");
                     item.attr("id", "item-" + i);
                     item.html("<p>" + inventory[i].amount + "</p>");
                     item.css("top", getY(i));
@@ -165,7 +165,7 @@ $(document).ready(function() {
                             var item = $(itemElement);
                             item.attr("class", "item");
                             item.attr("class", item.attr("class") + " sprites");
-                            item.attr("class", item.attr("class") + " items-3-" + chest[i].type + "-0");
+                            item.attr("class", item.attr("class") + " items-4-" + chest[i].type + "-0");
                             item.html("<p>" + chest[i].amount + "</p>");
                             item.css("top", getChestY(i));
                             item.css("left", getChestX(i));
@@ -284,7 +284,7 @@ function addArmorItem(id, container, loc) {
     var item = $(itemElement);
     item.attr("class", "item");
     item.attr("class", item.attr("class") + " sprites");
-    item.attr("class", item.attr("class") + " items-3-" + id.type + "-0");
+    item.attr("class", item.attr("class") + " items-4-" + id.type + "-0");
     item.css("top", armorLocs[loc]);
     item.css("left", armorLocs.left);
     $(container).append(item);
